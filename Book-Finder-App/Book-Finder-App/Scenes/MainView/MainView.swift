@@ -54,7 +54,9 @@ final class MainView: UIView {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
 
         collectionView.register(BookListCell.self, forCellWithReuseIdentifier: "\(BookListCell.self)")
-
+        
+        collectionView.keyboardDismissMode = .onDrag
+        
         return collectionView
     }()
     
