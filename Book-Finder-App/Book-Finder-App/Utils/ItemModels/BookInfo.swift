@@ -13,7 +13,7 @@ struct BookInfo: Decodable {
     let volumeInfo: VolumeInfo?
     let saleInfo: SaleInfo?
     let accessInfo: AccessInfo?
-    let searchInfo: SearchInfo
+    let searchInfo: SearchInfo?
     
     private enum CodingKeys: String, CodingKey {
         case kind
@@ -65,8 +65,8 @@ struct VolumeInfo: Decodable {
 }
 
 struct ReadingModes: Decodable {
-    let text: Bool
-    let image: Bool
+    let text: Bool?
+    let image: Bool?
     
     private enum CodingKeys: String, CodingKey {
         case text
@@ -86,7 +86,7 @@ struct PanelizationSummary: Decodable {
 
 struct ImageLinks: Decodable {
     let smallThumbnail: String?
-    let thumbnail: String
+    let thumbnail: String?
     
     private enum CodingKeys: String, CodingKey {
         case smallThumbnail
