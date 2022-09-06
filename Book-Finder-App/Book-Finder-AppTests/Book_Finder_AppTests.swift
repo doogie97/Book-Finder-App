@@ -36,21 +36,21 @@ class Book_Finder_AppTests: XCTestCase {
         XCTAssertEqual(result, "안녕")
     }
     
-    func test_testSearchResult를_DataDecoder의_decode메서드로parsing시_1번째책의readingModes중_image가_true인지() {
+    func test_옳바르지않은data를_DataDecoder의_decode메서드로parsing시_decodeError를던지는지() {
         //given
         let dataDecoder = DataDecoder()
-        let data = dataFromJson(fileName: "testSearchResult")
+        let data = Data()
         
         //when
-        guard let searchResult = try? dataDecoder.parse(data: data) else {
-            //then
-            XCTFail()
-            return
+        do {
+            let _ = try dataDecoder.parse(data: data)
+        } catch let error{
+            // then
+            guard let error = error as? APIError else {
+                XCTFail()
+                return
+            }
+            XCTAssertEqual(error, APIError.decodeError)
         }
-        
-        let result = searchResult.items?[1].volumeInfo?.readingModes?.image
-        
-        //then
-        XCTAssertEqual(result, true)
     }
 }
