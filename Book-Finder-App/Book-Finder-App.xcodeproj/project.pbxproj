@@ -28,6 +28,7 @@
 		ACB9C94F28C7427D0061C492 /* NetworkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB9C94E28C7427D0061C492 /* NetworkHandler.swift */; };
 		ACD5213428C79B1B0027F653 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD5213328C79B1B0027F653 /* MainView.swift */; };
 		ACD5213628C79B220027F653 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD5213528C79B220027F653 /* MainViewModel.swift */; };
+		ACD5213A28C7B3F20027F653 /* BookListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD5213928C7B3F20027F653 /* BookListCell.swift */; };
 		ACD5213E28C7B66C0027F653 /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD5213D28C7B66C0027F653 /* Container.swift */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +76,7 @@
 		ACB9C94E28C7427D0061C492 /* NetworkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHandler.swift; sourceTree = "<group>"; };
 		ACD5213328C79B1B0027F653 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		ACD5213528C79B220027F653 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		ACD5213928C7B3F20027F653 /* BookListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListCell.swift; sourceTree = "<group>"; };
 		ACD5213D28C7B66C0027F653 /* Container.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
 		C67ED621B7A74FBFAA5A4769 /* Pods_Book_Finder_AppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Book_Finder_AppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC4ABD8DC900D103E8FB5919 /* Pods-Book-Finder-App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Book-Finder-App.debug.xcconfig"; path = "Target Support Files/Pods-Book-Finder-App/Pods-Book-Finder-App.debug.xcconfig"; sourceTree = "<group>"; };
@@ -249,6 +251,7 @@
 				AC4895BA28C73A1A003D230F /* MainViewController.swift */,
 				ACD5213328C79B1B0027F653 /* MainView.swift */,
 				ACD5213528C79B220027F653 /* MainViewModel.swift */,
+				ACD5213928C7B3F20027F653 /* BookListCell.swift */,
 			);
 			path = MainView;
 			sourceTree = "<group>";
@@ -496,6 +499,7 @@
 				AC9F9DFE28C76B5600CCBE07 /* DataDecoder.swift in Sources */,
 				AC9F9DF128C7582900CCBE07 /* APIModel.swift in Sources */,
 				AC9F9DF828C763BE00CCBE07 /* SearchResult.swift in Sources */,
+				ACD5213A28C7B3F20027F653 /* BookListCell.swift in Sources */,
 				AC4895BB28C73A1A003D230F /* MainViewController.swift in Sources */,
 				AC4895B728C73A1A003D230F /* AppDelegate.swift in Sources */,
 				AC9F9DF328C758A700CCBE07 /* HTTPMethod.swift in Sources */,
