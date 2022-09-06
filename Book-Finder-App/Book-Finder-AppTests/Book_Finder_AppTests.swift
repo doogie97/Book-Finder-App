@@ -24,7 +24,7 @@ class Book_Finder_AppTests: XCTestCase {
         let data = dataFromJson(fileName: "testSearchResult")
         
         //when
-        guard let searchResult = try? dataDecoder.parse(data: data) else {
+        guard let searchResult = try? dataDecoder.parse(data: data, resultType: SearchResult.self) else {
             //then
             XCTFail()
             return
@@ -43,7 +43,7 @@ class Book_Finder_AppTests: XCTestCase {
         
         //when
         do {
-            let _ = try dataDecoder.parse(data: data)
+            let _ = try dataDecoder.parse(data: data, resultType: SearchResult.self)
         } catch let error{
             // then
             guard let error = error as? APIError else {
@@ -53,4 +53,21 @@ class Book_Finder_AppTests: XCTestCase {
             XCTAssertEqual(error, APIError.decodeError)
         }
     }
+    
+//    func test_안녕_검색시_data를정상적으로받아오는지() {
+//        let promise = expectation(description: "id가 일치 하는지")
+//
+//        let networkHandler = NetworkHandler()
+//
+//        networkHandler.request(api: APIModel(bookTitle: "안녕", startIndex: 0, maxResult: 1, method: .get)) { result in
+//            switch result {
+//            case .success(let data):
+//                XCTAssertEqual(data, "asdf")
+//            case .failure(_):
+//                XCTFail()
+//            }
+//            promise.fulfill()
+//        }
+//        wait(for: [promise], timeout: 20)
+//    }
 }

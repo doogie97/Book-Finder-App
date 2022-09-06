@@ -8,9 +8,9 @@
 import Foundation
 
 struct DataDecoder {
-    func parse(data: Data) throws -> SearchResult {
+    func parse<T: Decodable>(data: Data, resultType: T.Type) throws -> T {
         do {
-            let decodedData = try JSONDecoder().decode(SearchResult.self, from: data)
+            let decodedData = try JSONDecoder().decode(resultType, from: data)
             return decodedData
         } catch {
             throw APIError.decodeError
