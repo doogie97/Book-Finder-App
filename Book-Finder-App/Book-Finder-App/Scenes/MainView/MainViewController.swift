@@ -5,7 +5,7 @@
 //  Created by 최최성균 on 2022/09/06.
 //
 
-import UIKit
+import RxSwift
 
 final class MainViewController: UIViewController {
     private let viewModel: MainViewModelable
@@ -21,6 +21,7 @@ final class MainViewController: UIViewController {
     }
     
     private let mainView = MainView()
+    private let disposeBag = DisposeBag()
     
     override func loadView() {
         self.view = mainView
