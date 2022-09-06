@@ -15,6 +15,7 @@
 		AC4895CE28C73A1B003D230F /* Book_Finder_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4895CD28C73A1B003D230F /* Book_Finder_AppTests.swift */; };
 		AC4895D828C73A1B003D230F /* Book_Finder_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4895D728C73A1B003D230F /* Book_Finder_AppUITests.swift */; };
 		AC4895DA28C73A1B003D230F /* Book_Finder_AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4895D928C73A1B003D230F /* Book_Finder_AppUITestsLaunchTests.swift */; };
+		AC9F9DEF28C74E6200CCBE07 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F9DEE28C74E6200CCBE07 /* APIError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		AC4895D328C73A1B003D230F /* Book-Finder-AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Book-Finder-AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC4895D728C73A1B003D230F /* Book_Finder_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book_Finder_AppUITests.swift; sourceTree = "<group>"; };
 		AC4895D928C73A1B003D230F /* Book_Finder_AppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book_Finder_AppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		AC9F9DEE28C74E6200CCBE07 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 			children = (
 				AC4895B628C73A1A003D230F /* AppDelegate.swift */,
 				AC4895B828C73A1A003D230F /* SceneDelegate.swift */,
+				ACB9C94D28C742680061C492 /* Utils */,
 				AC4895BA28C73A1A003D230F /* ViewController.swift */,
 				AC4895BF28C73A1B003D230F /* Assets.xcassets */,
 				AC4895C128C73A1B003D230F /* LaunchScreen.storyboard */,
@@ -122,6 +125,22 @@
 				AC4895D928C73A1B003D230F /* Book_Finder_AppUITestsLaunchTests.swift */,
 			);
 			path = "Book-Finder-AppUITests";
+			sourceTree = "<group>";
+		};
+		AC9F9DED28C74E3E00CCBE07 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				AC9F9DEE28C74E6200CCBE07 /* APIError.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
+		ACB9C94D28C742680061C492 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				AC9F9DED28C74E3E00CCBE07 /* Error */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,6 +276,7 @@
 				AC4895BB28C73A1A003D230F /* ViewController.swift in Sources */,
 				AC4895B728C73A1A003D230F /* AppDelegate.swift in Sources */,
 				AC4895B928C73A1A003D230F /* SceneDelegate.swift in Sources */,
+				AC9F9DEF28C74E6200CCBE07 /* APIError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
