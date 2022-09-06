@@ -15,7 +15,7 @@ protocol MainViewModelInput {
 
 protocol MainViewModelOutput {
     var totalItems: BehaviorRelay<Int> { get }
-    var items: BehaviorRelay<[Int]> { get }
+    var items: BehaviorRelay<[BookInfo]> { get }
 }
 
 final class MainViewModel: MainViewModelable {
@@ -34,5 +34,5 @@ final class MainViewModel: MainViewModelable {
     
     //out
     let totalItems = BehaviorRelay<Int>(value: 0)
-    let items = BehaviorRelay<[Int]>(value: [1, 2, 3, 4, 5]) //콜렉션 뷰 확인을 위한 임시 코드
+    let items = BehaviorRelay<[BookInfo]>(value: [])
 }
