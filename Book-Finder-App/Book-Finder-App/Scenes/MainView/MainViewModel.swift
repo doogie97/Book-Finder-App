@@ -12,5 +12,11 @@ protocol MainViewModelInput {}
 protocol MainViewModelOutput {}
 
 final class MainViewModel: MainViewModelable {
+    private let networkHandler: NetworkHandler
+    private let dataDecoder: DataDecoder
     
+    init(networkHandler: NetworkHandler, dataDecoder: DataDecoder) {
+        self.networkHandler = networkHandler
+        self.dataDecoder = dataDecoder
+    }
 }
