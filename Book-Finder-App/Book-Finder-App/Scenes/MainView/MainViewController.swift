@@ -34,10 +34,19 @@ final class MainViewController: UIViewController {
     }
     
     private func bindView() {
+        mainView.searchBar.searchTextField.rx.controlEvent(.editingDidEndOnExit)
+            .bind(onNext: { [weak self] in
+                guard let text = self?.mainView.searchBar.text else {
+                    return
+                }
+                self?.view.endEditing(true)
+                self?.viewModel.touchSearchButton(text)
+            })
+            .disposed(by: disposeBag)
+        
         viewModel.items.bind(to: mainView.bookListCollectionView.rx.items(cellIdentifier: "\(BookListCell.self)", cellType: BookListCell.self)) { index, bookInfo, cell in
             
         }
         .disposed(by: disposeBag)
     }
 }
-
