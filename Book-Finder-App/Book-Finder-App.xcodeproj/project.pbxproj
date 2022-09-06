@@ -21,6 +21,7 @@
 		AC9F9DF328C758A700CCBE07 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F9DF228C758A700CCBE07 /* HTTPMethod.swift */; };
 		AC9F9DF828C763BE00CCBE07 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F9DF728C763BE00CCBE07 /* SearchResult.swift */; };
 		AC9F9DFA28C7687400CCBE07 /* BookInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F9DF928C7687400CCBE07 /* BookInfo.swift */; };
+		AC9F9DFC28C76A7100CCBE07 /* testSearchResult.json in Resources */ = {isa = PBXBuildFile; fileRef = AC9F9DFB28C76A7100CCBE07 /* testSearchResult.json */; };
 		AC9F9DFE28C76B5600CCBE07 /* DataDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F9DFD28C76B5600CCBE07 /* DataDecoder.swift */; };
 		ACB9C94F28C7427D0061C492 /* NetworkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB9C94E28C7427D0061C492 /* NetworkHandler.swift */; };
 /* End PBXBuildFile section */
@@ -61,6 +62,7 @@
 		AC9F9DF228C758A700CCBE07 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		AC9F9DF728C763BE00CCBE07 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		AC9F9DF928C7687400CCBE07 /* BookInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookInfo.swift; sourceTree = "<group>"; };
+		AC9F9DFB28C76A7100CCBE07 /* testSearchResult.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = testSearchResult.json; sourceTree = "<group>"; };
 		AC9F9DFD28C76B5600CCBE07 /* DataDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDecoder.swift; sourceTree = "<group>"; };
 		ACB9C94E28C7427D0061C492 /* NetworkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -127,6 +129,7 @@
 		AC4895CC28C73A1B003D230F /* Book-Finder-AppTests */ = {
 			isa = PBXGroup;
 			children = (
+				AC9F9DFB28C76A7100CCBE07 /* testSearchResult.json */,
 				AC4895CD28C73A1B003D230F /* Book_Finder_AppTests.swift */,
 			);
 			path = "Book-Finder-AppTests";
@@ -293,6 +296,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC9F9DFC28C76A7100CCBE07 /* testSearchResult.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

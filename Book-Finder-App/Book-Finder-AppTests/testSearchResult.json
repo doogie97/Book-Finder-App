@@ -1,0 +1,123 @@
+{
+  "kind": "books#volumes",
+  "totalItems": 3005,
+  "items": [
+    {
+      "kind": "books#volume",
+      "id": "lPxFuQEACAAJ",
+      "etag": "rPcKXt+07ew",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/lPxFuQEACAAJ",
+      "volumeInfo": {
+        "title": "안녕",
+        "authors": [
+          "안녕달"
+        ],
+        "publishedDate": "2018-07-20",
+        "readingModes": {
+          "text": false,
+          "image": false
+        },
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "preview-1.0.0",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "previewLink": "http://books.google.co.kr/books?id=lPxFuQEACAAJ&dq=%EC%95%88%EB%85%95&hl=&cd=1&source=gbs_api",
+        "infoLink": "http://books.google.co.kr/books?id=lPxFuQEACAAJ&dq=%EC%95%88%EB%85%95&hl=&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/%EC%95%88%EB%85%95.html?hl=&id=lPxFuQEACAAJ"
+      },
+      "saleInfo": {
+        "country": "KR"
+      },
+      "accessInfo": {
+        "country": "KR",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "accessViewStatus": "NONE"
+      },
+      "searchInfo": {
+        "textSnippet": "[Goodbye] by An Nyeong Dal, The winner of the 57th Korean culture award. This book illustrates Grandpa Sausage&#39;s life and death through beautifully understated dialogue and poetic images. A very creative picture book."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "cOA9EAAAQBAJ",
+      "etag": "FQQgA+6CKLY",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/cOA9EAAAQBAJ",
+      "volumeInfo": {
+        "title": "안녕한, 가",
+        "subtitle": "삶이 버겁다고 느끼는 이들에게 전하는 소박하고 성실한 일상의 기록",
+        "authors": [
+          "무과수"
+        ],
+        "publisher": "위즈덤하우스",
+        "publishedDate": "2021-08-17",
+        "description": "이따금 허해지는 마음을 채워준 집의 위로 - 도시생활자 무과수의 일상 기록 집 안 혹은 집 밖의 풍경을 기록하고 일상에 영감을 주는 콘텐츠로 대중에게 ‘집의 위로’를 선사하는 에디터 무과수의 에세이. 의미 있다고 생각하는 생활의 면면을 포착해 만든 『안녕한, 가』는 사계절 플레이리스트처럼 여름, 가을, 겨울, 봄의 순서로 구성되어 있다. 소박하지만 단단한 생활력이 느껴지는 글과 사진을 통해 삶이 버겁다고 느끼는 이들에게 뜻밖의 위안을 전한다. 이상과 일상을 분리하지 않고 매순간을 소중하게 생각하며, 성실하게 쌓아 올린 ‘하루’의 힘을 믿는 그의 기록은 도시 생활자를 위한 진정한 ‘일상의 기술’이다.",
+        "readingModes": {
+          "text": true,
+          "image": true
+        },
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "preview-1.0.0",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=cOA9EAAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=cOA9EAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "previewLink": "http://books.google.co.kr/books?id=cOA9EAAAQBAJ&printsec=frontcover&dq=%EC%95%88%EB%85%95&hl=&cd=2&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=cOA9EAAAQBAJ&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=cOA9EAAAQBAJ"
+      },
+      "saleInfo": {
+        "country": "KR",
+        "listPrice": {
+          "amount": 10850,
+          "currencyCode": "KRW"
+        },
+        "retailPrice": {
+          "amount": 9765,
+          "currencyCode": "KRW"
+        },
+        "buyLink": "https://play.google.com/store/books/details?id=cOA9EAAAQBAJ&rdid=book-cOA9EAAAQBAJ&rdot=1&source=gbs_api",
+        "offers": [
+          {
+            "finskyOfferType": 1,
+            "listPrice": {
+              "amountInMicros": 10850000000,
+              "currencyCode": "KRW"
+            },
+            "retailPrice": {
+              "amountInMicros": 9765000000,
+              "currencyCode": "KRW"
+            }
+          }
+        ]
+      },
+      "accessInfo": {
+        "country": "KR",
+        "epub": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.co.kr/books/download/%EC%95%88%EB%85%95%ED%95%9C_%EA%B0%80-sample-epub.acsm?id=cOA9EAAAQBAJ&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "pdf": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.co.kr/books/download/%EC%95%88%EB%85%95%ED%95%9C_%EA%B0%80-sample-pdf.acsm?id=cOA9EAAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "accessViewStatus": "SAMPLE"
+      },
+      "searchInfo": {
+        "textSnippet": "이따금 허해지는 마음을 채워준 집의 위로 - 도시생활자 무과수의 일상 기록 집 안 혹은 집 밖의 풍경을 기록하고 일상에 영감을 주는 콘텐츠로 대중에게 ‘집의 위로’를 선사하는 ..."
+      }
+    }
+  ]
+}
