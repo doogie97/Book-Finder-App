@@ -31,12 +31,15 @@ struct BookInfo: Decodable {
 struct VolumeInfo: Decodable {
     let title: String?
     let authors: [String]?
+    let publisher: String?
     let publishedDate: String?
+    let description: String?
     let readingModes: ReadingModes?
     let maturityRating: String?
     let allowAnonLogging: Bool?
     let contentVersion: String?
     let panelizationSummary: PanelizationSummary?
+    let imageLinks: ImageLinks?
     let previewLink: String?
     let infoLink: String?
     let canonicalVolumeLink: String?
@@ -44,12 +47,15 @@ struct VolumeInfo: Decodable {
     private enum CodingKeys: String, CodingKey {
         case title
         case authors
+        case publisher
         case publishedDate
+        case description
         case readingModes
         case maturityRating
         case allowAnonLogging
         case contentVersion
         case panelizationSummary
+        case imageLinks
         case previewLink
         case infoLink
         case canonicalVolumeLink
@@ -66,7 +72,6 @@ struct ReadingModes: Decodable {
     }
 }
 
-
 struct PanelizationSummary: Decodable {
     let containsEpubBubbles: Bool?
     let containsImageBubbles: Bool?
@@ -77,12 +82,82 @@ struct PanelizationSummary: Decodable {
     }
 }
 
+struct ImageLinks: Decodable {
+    let smallThumbnail: String?
+    let thumbnail: String
+    
+    private enum CodingKeys: String, CodingKey {
+        case smallThumbnail
+        case thumbnail
+    }
+}
+
 // MARK: - SaleInfo
 struct SaleInfo: Decodable {
     let country: String?
+    let listPrice: ListPrice?
+    let retailPrice: RetailPrice?
+    let buyLink: String?
+    let offers: [Offer]?
     
     private enum CodingKeys: String, CodingKey {
         case country
+        case listPrice
+        case retailPrice
+        case buyLink
+        case offers
+    }
+}
+
+struct ListPrice: Decodable {
+    let amount: Int?
+    let currencyCode: String?
+    
+    private enum CodingKeys: String, CodingKey {
+        case amount
+        case currencyCode
+    }
+}
+
+struct RetailPrice: Decodable {
+    let amount: Int?
+    let currencyCode: String?
+    
+    private enum CodingKeys: String, CodingKey {
+        case amount
+        case currencyCode
+    }
+}
+
+struct Offer: Decodable {
+    let finskyOfferType: Int?
+    let listPrice: ListPriceOfOffer?
+    let retailPrice: RetailPriceOfOffer?
+    
+    private enum CodingKeys: String, CodingKey {
+        case finskyOfferType
+        case listPrice
+        case retailPrice
+    }
+}
+
+struct ListPriceOfOffer: Decodable {
+    let amountInMicros: Int?
+    let currencyCode: String?
+    
+    private enum CodingKeys: String, CodingKey {
+        case amountInMicros
+        case currencyCode
+    }
+}
+
+struct RetailPriceOfOffer: Decodable {
+    let amountInMicros: Int?
+    let currencyCode: String?
+    
+    private enum CodingKeys: String, CodingKey {
+        case amountInMicros
+        case currencyCode
     }
 }
 
@@ -103,17 +178,21 @@ struct AccessInfo: Decodable {
 
 struct Epub: Decodable {
     let isAvailable: Bool?
+    let acsTokenLink: String?
     
     private enum CodingKeys: String, CodingKey {
         case isAvailable
+        case acsTokenLink
     }
 }
 
 struct Pdf: Decodable {
     let isAvailable: Bool?
+    let acsTokenLink: String?
     
     private enum CodingKeys: String, CodingKey {
         case isAvailable
+        case acsTokenLink
     }
 }
 
@@ -125,4 +204,3 @@ struct SearchInfo: Decodable {
         case textSnippet
     }
 }
-
