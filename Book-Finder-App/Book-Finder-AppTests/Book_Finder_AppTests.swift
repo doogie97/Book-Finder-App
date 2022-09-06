@@ -54,20 +54,31 @@ class Book_Finder_AppTests: XCTestCase {
         }
     }
     
-//    func test_안녕_검색시_data를정상적으로받아오는지() {
-//        let promise = expectation(description: "id가 일치 하는지")
-//
-//        let networkHandler = NetworkHandler()
-//
-//        networkHandler.request(api: APIModel(bookTitle: "안녕", startIndex: 0, maxResult: 1, method: .get)) { result in
-//            switch result {
-//            case .success(let data):
-//                XCTAssertEqual(data, "asdf")
-//            case .failure(_):
-//                XCTFail()
-//            }
-//            promise.fulfill()
-//        }
-//        wait(for: [promise], timeout: 20)
-//    }
+    //MARK: - NetworkHandler 테스트
+    func test_행복_이라는title로_NetworkHandler의_request메서드호출시_첫번째책의title이_행복을_풀다_와일치하는지() {
+        //api상황에 따라 결과 상이할 수 있어 실제 api와 비교 테스트 필요
+        
+        //given
+        let promise = expectation(description: "행복을 풀다와 일치하는지")
+
+        let networkHandler = NetworkHandler()
+        let dataDecoder = DataDecoder()
+        
+        networkHandler.request(api: APIModel(bookTitle: "행복", startIndex: 0, maxResult: 10, method: .get)) { apiResult in
+            switch apiResult {
+            case .success(let data):
+                guard let searchResult = try? dataDecoder.parse(data: data, resultType: SearchResult.self) else {
+                    XCTFail()
+                    return
+                }
+                let result = searchResult.items?[0].volumeInfo?.title
+                print(searchResult)
+                XCTAssertEqual(result, "행복을 풀다")
+            case .failure(_):
+                XCTFail()
+            }
+            promise.fulfill()
+        }
+        wait(for: [promise], timeout: 10)
+    }
 }
