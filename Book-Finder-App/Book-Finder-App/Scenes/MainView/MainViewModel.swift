@@ -9,7 +9,9 @@ import RxRelay
 
 protocol MainViewModelable: MainViewModelInput, MainViewModelOutput {}
 
-protocol MainViewModelInput {}
+protocol MainViewModelInput {
+    func touchSearchButton(_ text: String)
+}
 
 protocol MainViewModelOutput {
     var totalItems: BehaviorRelay<Int> { get }
@@ -23,6 +25,11 @@ final class MainViewModel: MainViewModelable {
     init(networkHandler: NetworkHandler, dataDecoder: DataDecoder) {
         self.networkHandler = networkHandler
         self.dataDecoder = dataDecoder
+    }
+    
+    //in
+    func touchSearchButton(_ text: String) {
+        print(text)
     }
     
     //out
