@@ -6,7 +6,6 @@
 //
 
 enum APIError: Error {
-    case bookTitleError
     case urlError
     case transportError
     case responseError
