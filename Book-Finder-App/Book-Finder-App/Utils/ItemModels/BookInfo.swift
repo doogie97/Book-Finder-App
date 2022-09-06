@@ -30,6 +30,7 @@ struct BookInfo: Decodable {
 // MARK: - VolumeInfo
 struct VolumeInfo: Decodable {
     let title: String?
+    let subtitle: String?
     let authors: [String]?
     let publisher: String?
     let publishedDate: String?
@@ -46,6 +47,7 @@ struct VolumeInfo: Decodable {
     
     private enum CodingKeys: String, CodingKey {
         case title
+        case subtitle
         case authors
         case publisher
         case publishedDate
