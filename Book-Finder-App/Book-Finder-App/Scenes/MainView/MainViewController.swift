@@ -44,6 +44,11 @@ final class MainViewController: UIViewController {
             })
             .disposed(by: disposeBag)
         
+        viewModel.totalItems.bind(onNext: { [weak self] in
+            self?.mainView.resultsLabel.text = "Result (\($0))"
+        })
+        .disposed(by: disposeBag)
+        
         viewModel.items.bind(to: mainView.bookListCollectionView.rx.items(cellIdentifier: "\(BookListCell.self)", cellType: BookListCell.self)) { index, bookInfo, cell in
             
         }
