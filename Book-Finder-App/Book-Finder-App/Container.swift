@@ -11,7 +11,7 @@ final class Container {
     }
     
     private func mainViewModel() -> MainViewModelable {
-        return MainViewModel(networkHandler: NetworkHandler(),
+        return MainViewModel(networkHandler: NetworkHandler2(),
                              dataDecoder: DataDecoder())
     }
     

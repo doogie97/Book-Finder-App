@@ -6,6 +6,7 @@
 //
 
 import RxRelay
+import RxSwift
 
 protocol MainViewModelable: MainViewModelInput, MainViewModelOutput {}
 
@@ -22,13 +23,14 @@ protocol MainViewModelOutput {
 }
 
 final class MainViewModel: MainViewModelable {
-    private let networkHandler: NetworkHandler
+    private let networkHandler: NetworkHandler2
     private let dataDecoder: DataDecoder
+    private let disposeBag = DisposeBag()
     private var startIndex = 0
     private let maxResult = 20
     private var searchText = ""
     
-    init(networkHandler: NetworkHandler, dataDecoder: DataDecoder) {
+    init(networkHandler: NetworkHandler2, dataDecoder: DataDecoder) {
         self.networkHandler = networkHandler
         self.dataDecoder = dataDecoder
     }
@@ -49,23 +51,30 @@ final class MainViewModel: MainViewModelable {
     private func getSearchInfo() {
         startLoading.accept(())
         let api = APIModel(bookTitle: searchText, startIndex: startIndex, maxResult: maxResult, method: .get)
-        networkHandler.request(api: api) { [weak self] result in
-            switch result {
-            case .success(let data):
-                guard let searchResult = try? self?.dataDecoder.parse(data: data, resultType: SearchResult.self) else {
-                    return // 추후 얼럿 표시 기능 구현 필요
-                }
-                self?.totalItems.accept(searchResult.totalItems ?? 0)
-                
-                let oldItems = self?.items.value ?? []
-                let newItems = oldItems + (searchResult.items ?? [])
-                self?.items.accept(newItems)
-                
-            case .failure(let error):
-                print(error) // 추후 얼럿 표시 기능 구현 필요
-            }
-            self?.stopLoading.accept(())
+        guard let data = try? networkHandler.request(api: api) else {
+            return // 추 후 에러 처리 필요
         }
+        
+        data.observe(on: MainScheduler.instance)
+            .subscribe { [weak self] event in
+                switch event {
+                case .next(let data):
+                    guard let searchResult = try? self?.dataDecoder.parse(data: data, resultType: SearchResult.self) else {
+                        return // 추 후 에러 처리 필요
+                    }
+                    let oldItems = self?.items.value ?? []
+                    let newItems = oldItems + (searchResult.items ?? [])
+                    
+                    self?.totalItems.accept(searchResult.totalItems ?? 0)
+                    self?.items.accept(newItems)
+                case .error(_):
+                    return // 추 후 에러 처리 필요
+                case .completed:
+                    return // 추 후 에러 처리 필요
+                }
+                self?.stopLoading.accept(())
+            }
+            .disposed(by: disposeBag)
     }
     
     //out
