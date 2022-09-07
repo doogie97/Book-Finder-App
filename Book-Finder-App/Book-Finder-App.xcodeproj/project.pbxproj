@@ -26,6 +26,7 @@
 		AC9F9DFC28C76A7100CCBE07 /* testSearchResult.json in Resources */ = {isa = PBXBuildFile; fileRef = AC9F9DFB28C76A7100CCBE07 /* testSearchResult.json */; };
 		AC9F9DFE28C76B5600CCBE07 /* DataDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F9DFD28C76B5600CCBE07 /* DataDecoder.swift */; };
 		ACB9C94F28C7427D0061C492 /* NetworkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB9C94E28C7427D0061C492 /* NetworkHandler.swift */; };
+		ACCD094C28C8514800D06F29 /* Collection + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCD094B28C8514800D06F29 /* Collection + Extension.swift */; };
 		ACD5213428C79B1B0027F653 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD5213328C79B1B0027F653 /* MainView.swift */; };
 		ACD5213628C79B220027F653 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD5213528C79B220027F653 /* MainViewModel.swift */; };
 		ACD5213A28C7B3F20027F653 /* BookListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD5213928C7B3F20027F653 /* BookListCell.swift */; };
@@ -74,6 +75,7 @@
 		AC9F9DFB28C76A7100CCBE07 /* testSearchResult.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = testSearchResult.json; sourceTree = "<group>"; };
 		AC9F9DFD28C76B5600CCBE07 /* DataDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDecoder.swift; sourceTree = "<group>"; };
 		ACB9C94E28C7427D0061C492 /* NetworkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHandler.swift; sourceTree = "<group>"; };
+		ACCD094B28C8514800D06F29 /* Collection + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection + Extension.swift"; sourceTree = "<group>"; };
 		ACD5213328C79B1B0027F653 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		ACD5213528C79B220027F653 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		ACD5213928C7B3F20027F653 /* BookListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListCell.swift; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 		AC9F9DE928C74CD900CCBE07 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				ACCD094B28C8514800D06F29 /* Collection + Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -505,6 +508,7 @@
 				AC9F9DF328C758A700CCBE07 /* HTTPMethod.swift in Sources */,
 				ACD5213428C79B1B0027F653 /* MainView.swift in Sources */,
 				AC4895B928C73A1A003D230F /* SceneDelegate.swift in Sources */,
+				ACCD094C28C8514800D06F29 /* Collection + Extension.swift in Sources */,
 				ACB9C94F28C7427D0061C492 /* NetworkHandler.swift in Sources */,
 				ACD5213E28C7B66C0027F653 /* Container.swift in Sources */,
 				AC9F9DEF28C74E6200CCBE07 /* APIError.swift in Sources */,
