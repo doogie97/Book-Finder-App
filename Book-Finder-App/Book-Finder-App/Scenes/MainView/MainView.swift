@@ -54,6 +54,13 @@ final class MainView: UIView {
         return label
     }()
     
+    private lazy var underLineView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .systemGray4
+        
+        return view
+    }()
+    
     private(set) lazy var bookListCollectionView: UICollectionView = {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalWidth(0.25))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
@@ -83,6 +90,7 @@ final class MainView: UIView {
         self.addSubview(bookListCollectionView)
         
         resultsView.addSubview(resultsLabel)
+        resultsView.addSubview(underLineView)
         
         navigationStackView.snp.makeConstraints {
             $0.top.leading.trailing.equalTo(safeAreaLayoutGuide).inset(16)
@@ -97,6 +105,11 @@ final class MainView: UIView {
         resultsLabel.snp.makeConstraints {
             $0.leading.equalToSuperview().inset(16)
             $0.centerY.equalToSuperview()
+        }
+        
+        underLineView.snp.makeConstraints {
+            $0.height.equalTo(1)
+            $0.trailing.leading.bottom.equalToSuperview()
         }
         
         bookListCollectionView.snp.makeConstraints {
