@@ -69,7 +69,6 @@ struct NetworkHandler2 {
         
         return Observable<Data>.create() { emitter in
             let dataTask = session.dataTask(with: request) { data, response, error in
-                DispatchQueue.main.async {
                     guard error == nil else {
                         emitter.onError(APIError.transportError)
                         return
@@ -86,7 +85,6 @@ struct NetworkHandler2 {
                     }
                     
                     emitter.onNext(data)
-                }
             }
             dataTask.resume()
             
