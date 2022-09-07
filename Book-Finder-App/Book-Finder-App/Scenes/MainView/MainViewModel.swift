@@ -17,6 +17,8 @@ protocol MainViewModelInput {
 protocol MainViewModelOutput {
     var totalItems: BehaviorRelay<Int> { get }
     var items: BehaviorRelay<[BookInfo]> { get }
+    var startLoading: PublishRelay<Void> { get }
+    var stopLoading: PublishRelay<Void> { get }
 }
 
 final class MainViewModel: MainViewModelable {
@@ -45,6 +47,7 @@ final class MainViewModel: MainViewModelable {
     }
     
     private func getSearchInfo() {
+        startLoading.accept(())
         let api = APIModel(bookTitle: searchText, startIndex: startIndex, maxResult: maxResult, method: .get)
         networkHandler.request(api: api) { [weak self] result in
             switch result {
@@ -61,10 +64,13 @@ final class MainViewModel: MainViewModelable {
             case .failure(let error):
                 print(error) // 추후 얼럿 표시 기능 구현 필요
             }
+            self?.stopLoading.accept(())
         }
     }
     
     //out
     let totalItems = BehaviorRelay<Int>(value: 0)
     let items = BehaviorRelay<[BookInfo]>(value: [])
+    let startLoading = PublishRelay<Void>()
+    let stopLoading = PublishRelay<Void>()
 }
