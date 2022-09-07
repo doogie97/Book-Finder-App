@@ -55,6 +55,17 @@ final class BookListCell: UICollectionViewCell {
         return label
     }()
     
+    private lazy var disclosureIndicator: UIImageView = {
+        let imageView = UIImageView()
+        imageView.preferredSymbolConfiguration = UIImage.SymbolConfiguration(pointSize: 15, weight: .semibold)
+        imageView.tintColor = .systemGray3
+        imageView.image = UIImage(systemName: "chevron.right")
+        imageView.setContentHuggingPriority(.required, for: .horizontal)
+        imageView.setContentCompressionResistancePriority(.required, for: .horizontal)
+        
+        return imageView
+    }()
+    
     private lazy var underLineView: UIView = {
         let view = UIView()
         view.backgroundColor = .systemGray4
@@ -72,6 +83,7 @@ final class BookListCell: UICollectionViewCell {
         self.contentView.addSubview(underLineView)
         self.contentView.addSubview(titleLabel)
         self.contentView.addSubview(authorLabel)
+        self.contentView.addSubview(disclosureIndicator)
         self.contentView.addSubview(publishedDateLabel)
         
         thumbnailImageView.snp.makeConstraints {
@@ -87,27 +99,30 @@ final class BookListCell: UICollectionViewCell {
         titleLabel.snp.makeConstraints {
             $0.top.equalTo(thumbnailImageView.snp.top)
             $0.leading.equalTo(thumbnailImageView.snp.trailing).offset(8)
-            $0.trailing.lessThanOrEqualToSuperview().inset(16)//이거 나중에는 버튼 leading으로
+            $0.trailing.equalTo(disclosureIndicator.snp.leading)
         }
         
         authorLabel.snp.makeConstraints {
             $0.centerY.equalTo(thumbnailImageView.snp.centerY)
             $0.leading.equalTo(thumbnailImageView.snp.trailing).offset(8)
-            $0.trailing.lessThanOrEqualToSuperview().inset(16)//이거 나중에는 버튼 leading으로
+            $0.trailing.equalTo(disclosureIndicator.snp.leading)
         }
         
         publishedDateLabel.snp.makeConstraints {
             $0.top.equalTo(authorLabel.snp.bottom).offset(8)
             $0.leading.equalTo(thumbnailImageView.snp.trailing).offset(8)
-            $0.trailing.lessThanOrEqualToSuperview().inset(16)//이거 나중에는 버튼 leading으로
+            $0.trailing.equalTo(disclosureIndicator.snp.leading)
+        }
+        
+        disclosureIndicator.snp.makeConstraints {
+            $0.centerY.equalToSuperview()
+            $0.trailing.equalToSuperview().inset(16)
         }
         
         underLineView.snp.makeConstraints {
             $0.height.equalTo(1)
-            
             $0.leading.equalToSuperview().inset(16)
             $0.trailing.bottom.equalToSuperview()
-            
         }
     }
     
