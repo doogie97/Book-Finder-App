@@ -61,6 +61,14 @@ final class MainView: UIView {
         return view
     }()
     
+    private(set) lazy var activityIndicator: UIActivityIndicatorView = {
+        let activityIndicator = UIActivityIndicatorView()
+        activityIndicator.style = .large
+        activityIndicator.hidesWhenStopped = true
+        
+        return activityIndicator
+    }()
+    
     private(set) lazy var bookListCollectionView: UICollectionView = {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalWidth(0.25))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
@@ -88,6 +96,7 @@ final class MainView: UIView {
         self.addSubview(navigationStackView)
         self.addSubview(resultsView)
         self.addSubview(bookListCollectionView)
+        self.addSubview(activityIndicator)
         
         resultsView.addSubview(resultsLabel)
         resultsView.addSubview(underLineView)
@@ -115,6 +124,10 @@ final class MainView: UIView {
         bookListCollectionView.snp.makeConstraints {
             $0.top.equalTo(resultsView.snp.bottom)
             $0.leading.trailing.bottom.equalToSuperview()
+        }
+        
+        activityIndicator.snp.makeConstraints {
+            $0.centerX.centerY.equalTo(bookListCollectionView)
         }
     }
 }
