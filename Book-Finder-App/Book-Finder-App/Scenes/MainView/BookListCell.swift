@@ -20,6 +20,7 @@ final class BookListCell: UICollectionViewCell {
         return imageView
     }()
     
+    private var imageViewDataTask: URLSessionDataTask?
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
