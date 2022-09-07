@@ -71,5 +71,17 @@ final class MainViewController: UIViewController {
                 }
             })
             .disposed(by: disposeBag)
+        
+        viewModel.startLoading
+            .bind(onNext: {[weak self] in
+                self?.mainView.activityIndicator.startAnimating()
+            })
+            .disposed(by: disposeBag)
+        
+        viewModel.stopLoading
+            .bind(onNext: {[weak self] in
+                self?.mainView.activityIndicator.stopAnimating()
+            })
+            .disposed(by: disposeBag)
     }
 }
