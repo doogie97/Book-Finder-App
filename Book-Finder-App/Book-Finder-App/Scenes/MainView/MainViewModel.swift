@@ -25,7 +25,7 @@ final class MainViewModel: MainViewModelable {
     private let networkHandler: NetworkHandler
     private let dataDecoder: DataDecoder
     private var startIndex = 0
-    private let maxResult = 15
+    private let maxResult = 20
     private var searchText = ""
     
     init(networkHandler: NetworkHandler, dataDecoder: DataDecoder) {
