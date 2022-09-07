@@ -112,4 +112,16 @@ final class BookListCell: UICollectionViewCell {
         
         publishedDateLabel.text = bookInfo.volumeInfo?.publishedDate ?? "알 수 없음"
     }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        imageViewDataTask?.suspend()
+        imageViewDataTask?.cancel()
+        
+        thumbnailImageView.image = nil
+        titleLabel.text = nil
+        authorLabel.text = nil
+        publishedDateLabel.text = nil
+    }
 }
