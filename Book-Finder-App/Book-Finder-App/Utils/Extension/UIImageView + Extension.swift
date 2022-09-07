@@ -9,6 +9,11 @@ import UIKit
 
 extension UIImageView {
     func setImage(urlString: String) -> URLSessionDataTask? {
+        if let savedImage = ImageCacheManager.shared.getImage(key: urlString) {
+            self.image = savedImage
+            return nil
+        }
+        
         guard let url = URL(string: urlString) else {
             return nil
         }
@@ -27,7 +32,12 @@ extension UIImageView {
             }
             
             DispatchQueue.main.async {
-                self.image = UIImage(data: data)
+                guard let image = UIImage(data: data) else {
+                    return
+                }
+                
+                ImageCacheManager.shared.saveImage(key: urlString, image: image)
+                self.image = image
             }
         }
         
