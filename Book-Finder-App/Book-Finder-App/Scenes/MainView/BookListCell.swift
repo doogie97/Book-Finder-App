@@ -14,6 +14,36 @@ final class BookListCell: UICollectionViewCell {
         setLayout()
     }
     
+    private lazy var thumbnailImageView: UIImageView = {
+        let imageView = UIImageView()
+        
+        return imageView
+    }()
+    
+    
+    private lazy var titleLabel: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 18, weight: .semibold)
+        
+        return label
+    }()
+    
+    private lazy var authorLabel: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 17, weight: .regular)
+        label.textColor = .systemGray
+        
+        return label
+    }()
+    
+    private lazy var publishedDateLabel: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 14, weight: .light)
+        label.textColor = .systemGray
+        
+        return label
+    }()
+    
     private lazy var underLineView: UIView = {
         let view = UIView()
         view.backgroundColor = .systemGray4
@@ -26,7 +56,35 @@ final class BookListCell: UICollectionViewCell {
     }
     
     private func setLayout() {
+        self.contentView.addSubview(thumbnailImageView)
         self.contentView.addSubview(underLineView)
+        self.contentView.addSubview(titleLabel)
+        self.contentView.addSubview(authorLabel)
+        self.contentView.addSubview(publishedDateLabel)
+        
+        thumbnailImageView.snp.makeConstraints {
+            $0.top.bottom.equalToSuperview().inset(8)
+            $0.leading.equalToSuperview().inset(16)
+            $0.width.equalToSuperview().dividedBy(6)
+        }
+        
+        titleLabel.snp.makeConstraints {
+            $0.top.equalTo(thumbnailImageView.snp.top)
+            $0.leading.equalTo(thumbnailImageView.snp.trailing).offset(8)
+            $0.trailing.lessThanOrEqualToSuperview().inset(16)//이거 나중에는 버튼 leading으로
+        }
+        
+        authorLabel.snp.makeConstraints {
+            $0.centerY.equalTo(thumbnailImageView.snp.centerY)
+            $0.leading.equalTo(thumbnailImageView.snp.trailing).offset(8)
+            $0.trailing.lessThanOrEqualToSuperview().inset(16)//이거 나중에는 버튼 leading으로
+        }
+        
+        publishedDateLabel.snp.makeConstraints {
+            $0.top.equalTo(authorLabel.snp.bottom).offset(8)
+            $0.leading.equalTo(thumbnailImageView.snp.trailing).offset(8)
+            $0.trailing.lessThanOrEqualToSuperview().inset(16)//이거 나중에는 버튼 leading으로
+        }
         
         underLineView.snp.makeConstraints {
             $0.height.equalTo(1)
