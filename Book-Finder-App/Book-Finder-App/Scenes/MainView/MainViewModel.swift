@@ -21,6 +21,9 @@ protocol MainViewModelOutput {
 final class MainViewModel: MainViewModelable {
     private let networkHandler: NetworkHandler
     private let dataDecoder: DataDecoder
+    private var startIndex = 0
+    private let maxResult = 15
+    private var searchText = ""
     
     init(networkHandler: NetworkHandler, dataDecoder: DataDecoder) {
         self.networkHandler = networkHandler
@@ -29,7 +32,13 @@ final class MainViewModel: MainViewModelable {
     
     //in
     func touchSearchButton(_ text: String) {
-        let api = APIModel(bookTitle: text, startIndex: 0, maxResult: 15, method: .get)
+        startIndex = 0
+        searchText = text
+        getSearchInfo()
+    }
+    
+    private func getSearchInfo() {
+        let api = APIModel(bookTitle: searchText, startIndex: startIndex, maxResult: maxResult, method: .get)
         networkHandler.request(api: api) { [weak self] result in
             switch result {
             case .success(let data):
@@ -37,7 +46,10 @@ final class MainViewModel: MainViewModelable {
                     return // 추후 얼럿 표시 기능 구현 필요
                 }
                 self?.totalItems.accept(searchResult.totalItems ?? 0)
-                self?.items.accept(searchResult.items ?? [])
+                
+                let oldItems = self?.items.value ?? []
+                let newItems = oldItems + (searchResult.items ?? [])
+                self?.items.accept(newItems)
                 
             case .failure(let error):
                 print(error) // 추후 얼럿 표시 기능 구현 필요
