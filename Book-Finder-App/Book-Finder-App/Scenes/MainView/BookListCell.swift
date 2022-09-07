@@ -20,6 +20,16 @@ final class BookListCell: UICollectionViewCell {
         return imageView
     }()
     
+    private lazy var noImageLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.font = .systemFont(ofSize: 10, weight: .regular)
+        label.text = "이미지 없음"
+        label.isHidden = true
+        
+        return label
+    }()
+    
     private var imageViewDataTask: URLSessionDataTask?
     
     private lazy var titleLabel: UILabel = {
@@ -58,6 +68,7 @@ final class BookListCell: UICollectionViewCell {
     
     private func setLayout() {
         self.contentView.addSubview(thumbnailImageView)
+        self.contentView.addSubview(noImageLabel)
         self.contentView.addSubview(underLineView)
         self.contentView.addSubview(titleLabel)
         self.contentView.addSubview(authorLabel)
@@ -67,6 +78,10 @@ final class BookListCell: UICollectionViewCell {
             $0.top.bottom.equalToSuperview().inset(8)
             $0.leading.equalToSuperview().inset(16)
             $0.width.equalToSuperview().dividedBy(6)
+        }
+        
+        noImageLabel.snp.makeConstraints {
+            $0.edges.equalTo(thumbnailImageView)
         }
         
         titleLabel.snp.makeConstraints {
@@ -97,8 +112,11 @@ final class BookListCell: UICollectionViewCell {
     }
     
     func setCellContents(_ bookInfo: BookInfo) {
-        imageViewDataTask = thumbnailImageView
-            .setImage(urlString: bookInfo.volumeInfo?.imageLinks?.smallThumbnail ?? "")
+        if let urlString = bookInfo.volumeInfo?.imageLinks?.smallThumbnail {
+            imageViewDataTask = thumbnailImageView.setImage(urlString: urlString)
+        } else {
+            noImageLabel.isHidden = false
+        }
         
         titleLabel.text = bookInfo.volumeInfo?.title
         
@@ -120,6 +138,7 @@ final class BookListCell: UICollectionViewCell {
         imageViewDataTask?.cancel()
         
         thumbnailImageView.image = nil
+        noImageLabel.isHidden = true
         titleLabel.text = nil
         authorLabel.text = nil
         publishedDateLabel.text = nil
