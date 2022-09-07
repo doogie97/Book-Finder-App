@@ -6,6 +6,7 @@
 //
 
 import XCTest
+import RxSwift
 @testable import Book_Finder_App
 
 class Book_Finder_AppTests: XCTestCase {
@@ -25,7 +26,6 @@ class Book_Finder_AppTests: XCTestCase {
         
         //when
         guard let searchResult = try? dataDecoder.parse(data: data, resultType: SearchResult.self) else {
-            //then
             XCTFail()
             return
         }
@@ -64,6 +64,7 @@ class Book_Finder_AppTests: XCTestCase {
         let networkHandler = NetworkHandler()
         let dataDecoder = DataDecoder()
         
+        //when
         networkHandler.request(api: APIModel(bookTitle: "행복", startIndex: 0, maxResult: 10, method: .get)) { apiResult in
             switch apiResult {
             case .success(let data):
@@ -71,14 +72,45 @@ class Book_Finder_AppTests: XCTestCase {
                     XCTFail()
                     return
                 }
+                //then
                 let result = searchResult.items?[0].volumeInfo?.title
-                print(searchResult)
+                
                 XCTAssertEqual(result, "행복을 풀다")
             case .failure(_):
                 XCTFail()
             }
             promise.fulfill()
         }
+        wait(for: [promise], timeout: 10)
+    }
+    
+    func test_행복_이라는title로_NetworkHandler의_request메서드호출시_첫번째책의title이_행복을_풀다_와일치하는지2() {
+        //api상황에 따라 결과 상이할 수 있어 실제 api와 비교 테스트 필요
+        
+        //given
+        let promise = expectation(description: "행복을 풀다와 일치하는지")
+        let disposeBag = DisposeBag()
+        let networkHandler = NetworkHandler2()
+        let dataDecoder = DataDecoder()
+        
+        guard let data = try? networkHandler.request(api: APIModel(bookTitle: "행복", startIndex: 0, maxResult: 10, method: .get)) else {
+            XCTFail()
+            return
+        }
+        data.subscribe { data in
+            guard let searchResult = try? dataDecoder.parse(data: data, resultType: SearchResult.self) else {
+                XCTFail()
+                return
+            }
+            //then
+            let result = searchResult.items?[0].volumeInfo?.title
+            XCTAssertEqual(result, "행복을 풀다")
+            promise.fulfill()
+        } onError: { _ in
+            XCTFail()
+        }
+        .disposed(by: disposeBag)
+
         wait(for: [promise], timeout: 10)
     }
 }
