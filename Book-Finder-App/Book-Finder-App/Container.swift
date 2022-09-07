@@ -14,4 +14,8 @@ final class Container {
         return MainViewModel(networkHandler: NetworkHandler(),
                              dataDecoder: DataDecoder())
     }
+    
+    func bookListCellViewModel(bookInfo: BookInfo) -> BookListCellViewModelable {
+        return BookListCellViewModel(bookInfo: bookInfo)
+    }
 }
