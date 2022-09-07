@@ -90,7 +90,7 @@ class Book_Finder_AppTests: XCTestCase {
         //given
         let promise = expectation(description: "행복을 풀다와 일치하는지")
         let disposeBag = DisposeBag()
-        let networkHandler = NetworkHandler2()
+        let networkHandler = NetworkHandler()
         let dataDecoder = DataDecoder()
         
         guard let data = try? networkHandler.request(api: APIModel(bookTitle: "행복", startIndex: 0, maxResult: 10, method: .get)) else {

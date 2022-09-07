@@ -23,14 +23,14 @@ protocol MainViewModelOutput {
 }
 
 final class MainViewModel: MainViewModelable {
-    private let networkHandler: NetworkHandler2
+    private let networkHandler: NetworkHandler
     private let dataDecoder: DataDecoder
     private let disposeBag = DisposeBag()
     private var startIndex = 0
     private let maxResult = 20
     private var searchText = ""
     
-    init(networkHandler: NetworkHandler2, dataDecoder: DataDecoder) {
+    init(networkHandler: NetworkHandler, dataDecoder: DataDecoder) {
         self.networkHandler = networkHandler
         self.dataDecoder = dataDecoder
     }
