@@ -11,6 +11,7 @@ protocol MainViewModelable: MainViewModelInput, MainViewModelOutput {}
 
 protocol MainViewModelInput {
     func touchSearchButton(_ text: String)
+    func scrolledEndPoint()
 }
 
 protocol MainViewModelOutput {
@@ -34,6 +35,11 @@ final class MainViewModel: MainViewModelable {
     func touchSearchButton(_ text: String) {
         startIndex = 0
         searchText = text
+        getSearchInfo()
+    }
+    
+    func scrolledEndPoint() {
+        startIndex += maxResult
         getSearchInfo()
     }
     
