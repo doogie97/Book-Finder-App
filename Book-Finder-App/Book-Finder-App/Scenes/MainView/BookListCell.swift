@@ -95,4 +95,21 @@ final class BookListCell: UICollectionViewCell {
             
         }
     }
+    
+    func setCellContents(_ bookInfo: BookInfo) {
+        imageViewDataTask = thumbnailImageView
+            .setImage(urlString: bookInfo.volumeInfo?.imageLinks?.smallThumbnail ?? "")
+        
+        titleLabel.text = bookInfo.volumeInfo?.title
+        
+        let authorsCount = bookInfo.volumeInfo?.authors?.count ?? 0
+        
+        if authorsCount <= 1 {
+            authorLabel.text = bookInfo.volumeInfo?.authors?[safe: 0] ?? "알 수 없음"
+        } else {
+            authorLabel.text = (bookInfo.volumeInfo?.authors?[safe: 0] ?? "") + " 외 \(authorsCount)명"
+        }
+        
+        publishedDateLabel.text = bookInfo.volumeInfo?.publishedDate ?? "알 수 없음"
+    }
 }

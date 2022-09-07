@@ -50,7 +50,7 @@ final class MainViewController: UIViewController {
         .disposed(by: disposeBag)
         
         viewModel.items.bind(to: mainView.bookListCollectionView.rx.items(cellIdentifier: "\(BookListCell.self)", cellType: BookListCell.self)) { index, bookInfo, cell in
-            
+            cell.setCellContents(bookInfo)
         }
         .disposed(by: disposeBag)
     }
