@@ -21,22 +21,24 @@ struct NetworkHandler {
         request.httpMethod = api.method.string
         
         let dataTask = session.dataTask(with: request) { data, response, error in
-            guard error == nil else {
-                completion(.failure(APIError.transportError))
-                return
-            }
-            
-            guard let response = response as? HTTPURLResponse, (200...299).contains(response.statusCode) else {
-                completion(.failure(APIError.responseError))
-                return
-            }
+            DispatchQueue.main.async {
+                guard error == nil else {
+                    completion(.failure(APIError.transportError))
+                    return
+                }
+                
+                guard let response = response as? HTTPURLResponse, (200...299).contains(response.statusCode) else {
+                    completion(.failure(APIError.responseError))
+                    return
+                }
 
-            guard let data = data else {
-                completion(.failure(APIError.dataError))
-                return
+                guard let data = data else {
+                    completion(.failure(APIError.dataError))
+                    return
+                }
+                
+                completion(.success(data))
             }
-            
-            completion(.success(data))
         }
         dataTask.resume()
     }
