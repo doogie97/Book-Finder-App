@@ -7,7 +7,7 @@
 
 final class Container {
     func mainViewController() -> MainViewController {
-        return MainViewController(viewModel: mainViewModel())
+        return MainViewController(viewModel: mainViewModel(), container: self)
     }
     
     private func mainViewModel() -> MainViewModelable {
