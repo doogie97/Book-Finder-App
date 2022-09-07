@@ -53,11 +53,11 @@ final class MainViewController: UIViewController {
         
         viewModel.items.bind(to: mainView.bookListCollectionView.rx.items(cellIdentifier: "\(BookListCell.self)", cellType: BookListCell.self)) { [weak self] index, bookInfo, cell in
             
-            guard let self = self else {
+            guard let bookListCellViewModel = self?.container.bookListCellViewModel(bookInfo: bookInfo) else {
                 return
             }
-            
-            cell.setCellContents(viewModel: self.container.bookListCellViewModel(bookInfo: bookInfo))
+
+            cell.setCellContents(viewModel: bookListCellViewModel)
         }
         .disposed(by: disposeBag)
     }
