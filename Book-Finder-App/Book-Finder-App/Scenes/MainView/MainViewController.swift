@@ -60,5 +60,16 @@ final class MainViewController: UIViewController {
             cell.setCellContents(viewModel: bookListCellViewModel)
         }
         .disposed(by: disposeBag)
+        
+        mainView.bookListCollectionView.rx.prefetchItems
+            .bind(onNext: { [weak self] in
+                guard let itemCount = self?.viewModel.items.value.count else {
+                    return
+                }
+                if $0.last?.row == itemCount - 1 {
+                    self?.viewModel.scrolledEndPoint()
+                }
+            })
+            .disposed(by: disposeBag)
     }
 }
