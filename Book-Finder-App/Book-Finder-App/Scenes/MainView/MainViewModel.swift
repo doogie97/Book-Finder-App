@@ -35,6 +35,7 @@ final class MainViewModel: MainViewModelable {
     func touchSearchButton(_ text: String) {
         startIndex = 0
         searchText = text
+        items.accept([])
         getSearchInfo()
     }
     
