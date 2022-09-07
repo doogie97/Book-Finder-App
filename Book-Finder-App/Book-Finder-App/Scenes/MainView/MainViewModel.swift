@@ -29,7 +29,7 @@ final class MainViewModel: MainViewModelable {
     
     //in
     func touchSearchButton(_ text: String) {
-        let api = APIModel(bookTitle: text, startIndex: 0, maxResult: 10, method: .get)
+        let api = APIModel(bookTitle: text, startIndex: 0, maxResult: 15, method: .get)
         networkHandler.request(api: api) { [weak self] result in
             switch result {
             case .success(let data):
