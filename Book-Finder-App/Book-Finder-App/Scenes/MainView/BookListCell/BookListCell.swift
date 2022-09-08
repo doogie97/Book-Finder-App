@@ -131,8 +131,8 @@ final class BookListCell: UICollectionViewCell {
     func setCellContents(viewModel: BookListCellViewModelable) {
         self.viewModel = viewModel
 
-        if let urlString = viewModel.imageURLString {
-            imageViewDataTask = thumbnailImageView.setImage(urlString: urlString)
+        if let imageURL = viewModel.imageURLString {
+            imageViewDataTask = thumbnailImageView.setImage(urlString: imageURL)
         } else {
             noImageLabel.isHidden = false
         }
