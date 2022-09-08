@@ -5,7 +5,7 @@
 //  Created by 최최성균 on 2022/09/08.
 //
 
-import UIKit
+import RxSwift
 
 final class BookDetailViewController: UIViewController {
     private let viewModel: BookDetailViewModelable
@@ -20,6 +20,7 @@ final class BookDetailViewController: UIViewController {
     }
     
     private let bookDetailView = BookDetailView()
+    private let disposeBag = DisposeBag()
     
     override func loadView() {
         self.view = bookDetailView
