@@ -43,23 +43,7 @@ final class BookDetailView: UIView {
     private lazy var contentsView = UIView()
     
     private lazy var mainInfoView = BookMainInfoView()
-    
-    private lazy var descriptionTitleLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 18, weight: .semibold)
-        label.text = "책 소개"
-        
-        return label
-    }()
-    
-    private lazy var descriptionLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 16, weight: .regular)
-        label.textColor = .gray
-        label.numberOfLines = 0
-        
-        return label
-    }()
+    private lazy var descriptionView = BookDescriptionView()
     
     private func setLayout() {
         self.backgroundColor = .systemBackground
@@ -67,10 +51,11 @@ final class BookDetailView: UIView {
         self.addSubview(navigationView)
         navigationView.addSubview(backButton)
         navigationView.addSubview(navigationTitleLabel)
+        
         self.addSubview(contentsView)
         contentsView.addSubview(mainInfoView)
-        contentsView.addSubview(descriptionTitleLabel)
-        contentsView.addSubview(descriptionLabel)
+        contentsView.addSubview(descriptionView)
+  
         
         navigationView.snp.makeConstraints {
             $0.top.leading.trailing.equalToSuperview()
@@ -98,26 +83,19 @@ final class BookDetailView: UIView {
             $0.leading.trailing.equalToSuperview()
         }
         
-        
-        //아마 여기부터 두번째 뷰로 갈듯
-        
-        descriptionTitleLabel.snp.makeConstraints {
+        descriptionView.snp.makeConstraints {
             $0.top.equalTo(mainInfoView.snp.bottom).offset(16)
-            $0.leading.trailing.equalToSuperview().inset(24)
-        }
-        
-        descriptionLabel.snp.makeConstraints {
-            $0.top.equalTo(descriptionTitleLabel.snp.bottom).offset(16)
-            $0.leading.trailing.equalToSuperview().inset(24)
+            $0.leading.trailing.equalToSuperview()
         }
     }
     
     func setViewContents(bookInfo: BookInfo) {
-        mainInfoView.setViewLayout(imageURL: bookInfo.volumeInfo?.imageLinks?.thumbnail,
+        navigationTitleLabel.text = bookInfo.volumeInfo?.title
+        
+        mainInfoView.setViewContents(imageURL: bookInfo.volumeInfo?.imageLinks?.thumbnail,
                                    title: bookInfo.volumeInfo?.title,
                                    authors: bookInfo.volumeInfo?.authors?.joined(separator: ", "))
         
-        navigationTitleLabel.text = bookInfo.volumeInfo?.title
-        descriptionLabel.text = (bookInfo.volumeInfo?.description)
+        descriptionView.setViewContents(description: bookInfo.volumeInfo?.description)
     }
 }
