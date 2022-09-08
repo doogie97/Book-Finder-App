@@ -9,6 +9,15 @@ protocol BookDetailViewModelable: BookDetailViewModelInput, BookDetailViewModelO
 
 protocol BookDetailViewModelInput {}
 
-protocol BookDetailViewModelOutput {}
+protocol BookDetailViewModelOutput {
+    var bookInfo: BookInfo { get }
+}
 
-final class BookDetailViewModel: BookDetailViewModelable {}
+final class BookDetailViewModel: BookDetailViewModelable {
+    init(bookInfo: BookInfo) {
+        self.bookInfo = bookInfo
+    }
+    
+    //out
+    var bookInfo: BookInfo
+}
