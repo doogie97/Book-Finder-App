@@ -25,7 +25,7 @@ final class BookDetailViewModel: BookDetailViewModelable {
     
     //in
     func touchBackButton() {
-        
+        popView.accept(())
     }
     
     //out
