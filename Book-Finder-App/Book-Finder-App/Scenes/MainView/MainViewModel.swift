@@ -21,6 +21,7 @@ protocol MainViewModelOutput {
     var startLoading: PublishRelay<Void> { get }
     var stopLoading: PublishRelay<Void> { get }
     var showAlert: PublishRelay<String?> { get }
+    var showBookDetail: PublishRelay<BookInfo> { get }
 }
 
 final class MainViewModel: MainViewModelable {
@@ -83,7 +84,11 @@ final class MainViewModel: MainViewModelable {
     }
     
     func touchCell(_ index: Int) {
-        print(index)
+        guard let bookInfo = items.value[safe: index] else {
+            return
+        }
+        
+        showBookDetail.accept(bookInfo)
     }
     
     //out
@@ -92,4 +97,5 @@ final class MainViewModel: MainViewModelable {
     let startLoading = PublishRelay<Void>()
     let stopLoading = PublishRelay<Void>()
     let showAlert = PublishRelay<String?>()
+    let showBookDetail = PublishRelay<BookInfo>()
 }
