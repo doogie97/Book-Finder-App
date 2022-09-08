@@ -44,7 +44,7 @@ final class MainViewController: UIViewController {
             .disposed(by: disposeBag)
         
         viewModel.totalItems.bind(onNext: { [weak self] in
-            self?.mainView.resultsLabel.text = "Result (\($0))"
+            self?.mainView.setViewContents(results: $0)
         })
         .disposed(by: disposeBag)
         

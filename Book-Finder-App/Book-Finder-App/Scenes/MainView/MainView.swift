@@ -46,7 +46,7 @@ final class MainView: UIView {
         return view
     }()
     
-    private(set) lazy var resultsLabel: UILabel = {
+    private lazy var resultsLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 15, weight: .semibold)
         label.textColor = .systemGray
@@ -90,6 +90,17 @@ final class MainView: UIView {
         return collectionView
     }()
     
+    private lazy var instructionLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.textColor = .gray
+        label.font = .systemFont(ofSize: 20, weight: .regular)
+        label.numberOfLines = 0
+        label.text = "검색하고 싶은 책 정보를 입력해 주세요.\n ex) 제목, 작가, 출판사, 출판일 등"
+        
+        return label
+    }()
+    
     private func setLayout() {
         self.backgroundColor = .systemBackground
         
@@ -97,6 +108,7 @@ final class MainView: UIView {
         self.addSubview(resultsView)
         self.addSubview(bookListCollectionView)
         self.addSubview(activityIndicator)
+        self.addSubview(instructionLabel)
         
         resultsView.addSubview(resultsLabel)
         resultsView.addSubview(underLineView)
@@ -129,5 +141,14 @@ final class MainView: UIView {
         activityIndicator.snp.makeConstraints {
             $0.centerX.centerY.equalTo(bookListCollectionView)
         }
+        
+        instructionLabel.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+    }
+    
+    func setViewContents(results: Int) {
+        self.resultsLabel.text = "Results(\(results))"
+        self.instructionLabel.isHidden = results == 0 ? false : true
     }
 }
