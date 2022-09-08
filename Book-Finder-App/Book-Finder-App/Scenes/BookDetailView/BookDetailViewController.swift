@@ -26,4 +26,22 @@ final class BookDetailViewController: UIViewController {
         self.view = bookDetailView
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        bindView()
+    }
+    
+    private func bindView() {
+        bookDetailView.backButton.rx.tap
+            .bind(onNext: { [weak self] in
+                self?.viewModel.touchBackButton()
+            })
+            .disposed(by: disposeBag)
+        
+        viewModel.popView
+            .bind(onNext: { [weak self] in
+                self?.navigationController?.popViewController(animated: true)
+            })
+            .disposed(by: disposeBag)
+    }
 }
