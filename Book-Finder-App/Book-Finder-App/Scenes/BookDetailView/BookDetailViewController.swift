@@ -19,4 +19,10 @@ final class BookDetailViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    private let bookDetailView = BookDetailView()
+    
+    override func loadView() {
+        self.view = bookDetailView
+    }
+    
 }
