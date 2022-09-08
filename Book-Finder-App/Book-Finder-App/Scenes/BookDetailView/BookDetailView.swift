@@ -45,6 +45,7 @@ final class BookDetailView: UIView {
     private lazy var contentsView = UIView()
     
     private lazy var mainInfoView = BookMainInfoView()
+    private lazy var subInfoView = BookSubInfoView()
     private lazy var descriptionView = BookDescriptionView()
     
     private func setLayout() {
@@ -58,6 +59,7 @@ final class BookDetailView: UIView {
         
         scrollView.addSubview(contentsView)
         contentsView.addSubview(mainInfoView)
+        contentsView.addSubview(subInfoView)
         contentsView.addSubview(descriptionView)
         
         navigationView.snp.makeConstraints {
@@ -91,8 +93,13 @@ final class BookDetailView: UIView {
             $0.leading.trailing.equalToSuperview()
         }
         
-        descriptionView.snp.makeConstraints {
+        subInfoView.snp.makeConstraints {
             $0.top.equalTo(mainInfoView.snp.bottom).offset(16)
+            $0.leading.trailing.equalToSuperview()
+        }
+        
+        descriptionView.snp.makeConstraints {
+            $0.top.equalTo(subInfoView.snp.bottom).offset(16)
             $0.leading.bottom.trailing.equalToSuperview()
         }
     }

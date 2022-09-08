@@ -33,6 +33,7 @@
 		ACB9C94F28C7427D0061C492 /* NetworkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB9C94E28C7427D0061C492 /* NetworkHandler.swift */; };
 		ACBBE02828C9EEF8001C818D /* BookMainInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBBE02728C9EEF8001C818D /* BookMainInfoView.swift */; };
 		ACBBE02A28C9F3F1001C818D /* BookDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBBE02928C9F3F1001C818D /* BookDescriptionView.swift */; };
+		ACBBE02C28C9FE8F001C818D /* BookSubInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBBE02B28C9FE8F001C818D /* BookSubInfoView.swift */; };
 		ACBD1C0F28C9CF780030F2AE /* UIView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBD1C0E28C9CF780030F2AE /* UIView + Extension.swift */; };
 		ACBD1C1128C9D3480030F2AE /* UINavigationController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBD1C1028C9D3480030F2AE /* UINavigationController + Extension.swift */; };
 		ACCD094C28C8514800D06F29 /* Collection + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCD094B28C8514800D06F29 /* Collection + Extension.swift */; };
@@ -94,6 +95,7 @@
 		ACB9C94E28C7427D0061C492 /* NetworkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHandler.swift; sourceTree = "<group>"; };
 		ACBBE02728C9EEF8001C818D /* BookMainInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookMainInfoView.swift; sourceTree = "<group>"; };
 		ACBBE02928C9F3F1001C818D /* BookDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDescriptionView.swift; sourceTree = "<group>"; };
+		ACBBE02B28C9FE8F001C818D /* BookSubInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookSubInfoView.swift; sourceTree = "<group>"; };
 		ACBD1C0E28C9CF780030F2AE /* UIView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extension.swift"; sourceTree = "<group>"; };
 		ACBD1C1028C9D3480030F2AE /* UINavigationController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController + Extension.swift"; sourceTree = "<group>"; };
 		ACCD094B28C8514800D06F29 /* Collection + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection + Extension.swift"; sourceTree = "<group>"; };
@@ -275,6 +277,7 @@
 			isa = PBXGroup;
 			children = (
 				ACBBE02728C9EEF8001C818D /* BookMainInfoView.swift */,
+				ACBBE02B28C9FE8F001C818D /* BookSubInfoView.swift */,
 				ACBBE02928C9F3F1001C818D /* BookDescriptionView.swift */,
 			);
 			path = BookDetailContentsViews;
@@ -568,6 +571,7 @@
 				ACD5213A28C7B3F20027F653 /* BookListCell.swift in Sources */,
 				AC4895BB28C73A1A003D230F /* MainViewController.swift in Sources */,
 				AC4895B728C73A1A003D230F /* AppDelegate.swift in Sources */,
+				ACBBE02C28C9FE8F001C818D /* BookSubInfoView.swift in Sources */,
 				AC80C2D228C9BF1500297C85 /* BookDetailViewController.swift in Sources */,
 				ACBD1C1128C9D3480030F2AE /* UINavigationController + Extension.swift in Sources */,
 				AC9F9DF328C758A700CCBE07 /* HTTPMethod.swift in Sources */,
