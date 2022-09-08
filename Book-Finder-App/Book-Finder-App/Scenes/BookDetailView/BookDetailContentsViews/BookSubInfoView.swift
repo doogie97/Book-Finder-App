@@ -36,28 +36,53 @@ final class BookSubInfoView: UIView {
     
     private lazy var underLineView = colorEemptyView(color: .systemGray6)
     
-    private let listTitleColor = UIColor.gray
+    private lazy var categoriesStackView = horizontalStackView(subViews: [categoriesTitleLabel, categoriesLabel])
+    private lazy var categoriesTitleLabel = listTitleLabel(text: "카테고리")
+    private lazy var categoriesLabel = listContentsLabel()
     
-    private lazy var categoriesTitleLabel = listLabel(text: "카테고리 : ", color: listTitleColor)
-    private lazy var categoriesLabel = listLabel()
+    private lazy var pageCountStackView = horizontalStackView(subViews: [pageCountTitleLabel, pageCountLabel])
+    private lazy var pageCountTitleLabel = listTitleLabel(text: "쪽수")
+    private lazy var pageCountLabel = listContentsLabel()
     
-    private lazy var pageCountTitleLabel = listLabel(text: "쪽수 : ", color: listTitleColor)
-    private lazy var pageCountLabel = listLabel()
+    private lazy var isbnStackView = horizontalStackView(subViews: [isbnTitleLabel, isbnLabel])
+    private lazy var isbnTitleLabel = listTitleLabel(text: "ISBN")
+    private lazy var isbnLabel = listContentsLabel()
     
-    private lazy var isbnTitleLabel = listLabel(text: "ISBN : ", color: listTitleColor)
-    private lazy var isbnLabel = listLabel()
-    
-    private func listLabel(text: String = "", color: UIColor = .label) -> UILabel {
+    private func listTitleLabel(text: String) -> UILabel {
         let label = UILabel()
         label.text = text
         label.font = .systemFont(ofSize: 16, weight: .regular)
-        label.textColor = color
+        label.textColor = UIColor.gray
         
         return label
     }
+    
+    private func listContentsLabel() -> UILabel {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 16, weight: .regular)
+        label.numberOfLines = 0
+        
+        return label
+    }
+    
+    private func horizontalStackView(subViews: [UIView]) -> UIStackView {
+        let stackView = UIStackView(arrangedSubviews: subViews)
+        subViews.first?.snp.makeConstraints {
+            $0.width.equalToSuperview().multipliedBy(0.25)
+        }
+        
+        return stackView
+    }
+    
+    private lazy var separatorView = colorEemptyView(color: .systemGray6)
+    
     private func setLayout() {
         self.addSubview(subInfoTitleLabel)
         self.addSubview(subTitleLabel)
+        self.addSubview(underLineView)
+        self.addSubview(categoriesStackView)
+        self.addSubview(pageCountStackView)
+        self.addSubview(isbnStackView)
         self.addSubview(separatorView)
         
         subInfoTitleLabel.snp.makeConstraints {
@@ -70,9 +95,30 @@ final class BookSubInfoView: UIView {
             $0.leading.trailing.equalToSuperview().inset(24)
         }
         
+        underLineView.snp.makeConstraints {
+            $0.height.equalTo(1)
+            $0.top.equalTo(subTitleLabel.snp.bottom).offset(8)
+            $0.leading.trailing.equalToSuperview()
+        }
+        
+        categoriesStackView.snp.makeConstraints {
+            $0.top.equalTo(underLineView.snp.bottom).offset(8)
+            $0.leading.trailing.equalToSuperview().inset(24)
+        }
+        
+        pageCountStackView.snp.makeConstraints {
+            $0.top.equalTo(categoriesStackView.snp.bottom).offset(8)
+            $0.leading.trailing.equalToSuperview().inset(24)
+        }
+
+        isbnStackView.snp.makeConstraints {
+            $0.top.equalTo(pageCountStackView.snp.bottom).offset(8)
+            $0.leading.trailing.equalToSuperview().inset(24)
+        }
+        
         separatorView.snp.makeConstraints {
             $0.height.equalTo(16)
-            $0.top.equalTo(subTitleLabel.snp.bottom).offset(16)
+            $0.top.equalTo(isbnStackView.snp.bottom).offset(16)
             $0.leading.trailing.bottom.equalToSuperview()
         }
     }
