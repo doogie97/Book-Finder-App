@@ -36,7 +36,7 @@ final class BookDetailView: UIView {
         return label
     }()
     
-    private lazy var underLineView = colorEemptyView(color: .systemGray3)
+    private lazy var underLineView = colorEemptyView(color: .systemGray4)
     
     private lazy var scrollView = UIScrollView()
     
@@ -111,7 +111,8 @@ final class BookDetailView: UIView {
 
         publishInfoView.snp.makeConstraints {
             $0.top.equalTo(descriptionView.snp.bottom).offset(16)
-            $0.leading.trailing.bottom.equalToSuperview()
+            $0.leading.trailing.equalToSuperview()
+            $0.bottom.equalToSuperview().inset(16)
         }
     }
     
