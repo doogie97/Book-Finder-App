@@ -48,32 +48,6 @@ final class BookSubInfoView: UIView {
     private lazy var isbnTitleLabel = listTitleLabel(text: "ISBN")
     private lazy var isbnLabel = listContentsLabel()
     
-    private func listTitleLabel(text: String) -> UILabel {
-        let label = UILabel()
-        label.text = text
-        label.font = .systemFont(ofSize: 16, weight: .regular)
-        label.textColor = UIColor.gray
-        
-        return label
-    }
-    
-    private func listContentsLabel() -> UILabel {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 16, weight: .regular)
-        label.numberOfLines = 0
-        
-        return label
-    }
-    
-    private func horizontalStackView(subViews: [UIView]) -> UIStackView {
-        let stackView = UIStackView(arrangedSubviews: subViews)
-        subViews.first?.snp.makeConstraints {
-            $0.width.equalToSuperview().multipliedBy(0.25)
-        }
-        
-        return stackView
-    }
-    
     private lazy var separatorView = colorEemptyView(color: .systemGray6)
     
     private func setLayout() {
