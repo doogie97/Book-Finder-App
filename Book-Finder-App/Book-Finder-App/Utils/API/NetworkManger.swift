@@ -1,5 +1,5 @@
 //
-//  NetworkHandler.swift
+//  NetworkManger.swift
 //  Book-Finder-App
 //
 //  Created by 최최성균 on 2022/09/06.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct NetworkHandler {
+struct NetworkManger {
     private let session = URLSession.shared
     
     func request(api: APIable, completion: @escaping (Result<Data, APIError>) -> Void) {

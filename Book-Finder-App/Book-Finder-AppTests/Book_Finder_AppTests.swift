@@ -54,17 +54,17 @@ class Book_Finder_AppTests: XCTestCase {
         }
     }
     
-    //MARK: - NetworkHandler 테스트
-    func test_행복_이라는title로_NetworkHandler의_request메서드호출시_첫번째책의title이_행복을_풀다_와일치하는지() {
+    //MARK: - NetworkManager 테스트
+    func test_행복_이라는title로_NetworkManager의_request메서드호출시_첫번째책의title이_행복을_풀다_와일치하는지() {
         //api상황에 따라 결과 상이할 수 있어 실제 api와 비교 테스트 필요
         
         //given
         let promise = expectation(description: "행복을 풀다와 일치하는지")
 
-        let networkHandler = NetworkHandler()
+        let networkManager = NetworkManger()
         let dataDecoder = DataDecoder()
         
-        networkHandler.request(api: APIModel(bookTitle: "행복", startIndex: 0, maxResult: 10, method: .get)) { apiResult in
+        networkManager.request(api: APIModel(bookTitle: "행복", startIndex: 0, maxResult: 10, method: .get)) { apiResult in
             switch apiResult {
             case .success(let data):
                 guard let searchResult = try? dataDecoder.parse(data: data, resultType: SearchResult.self) else {

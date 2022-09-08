@@ -25,14 +25,14 @@ protocol MainViewModelOutput {
 }
 
 final class MainViewModel: MainViewModelable {
-    private let networkHandler: NetworkHandler
+    private let networkManager: NetworkManger
     private let dataDecoder: DataDecoder
     private var startIndex = 0
     private let maxResult = 20
     private var searchText = ""
     
-    init(networkHandler: NetworkHandler, dataDecoder: DataDecoder) {
-        self.networkHandler = networkHandler
+    init(networkManager: NetworkManger, dataDecoder: DataDecoder) {
+        self.networkManager = networkManager
         self.dataDecoder = dataDecoder
     }
     
@@ -55,7 +55,7 @@ final class MainViewModel: MainViewModelable {
     private func getSearchInfo() {
         startLoading.accept(())
         let api = APIModel(bookTitle: searchText, startIndex: startIndex, maxResult: maxResult, method: .get)
-        networkHandler.request(api: api) { [weak self] result in
+        networkManager.request(api: api) { [weak self] result in
             switch result {
             case .success(let data):
                 do {
