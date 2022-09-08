@@ -53,17 +53,19 @@ final class MainViewModel: MainViewModelable {
         networkHandler.request(api: api) { [weak self] result in
             switch result {
             case .success(let data):
-                guard let searchResult = try? self?.dataDecoder.parse(data: data, resultType: SearchResult.self) else {
-                    return // 추후 얼럿 표시 기능 구현 필요
+                do {
+                    let searchResult = try self?.dataDecoder.parse(data: data, resultType: SearchResult.self)
+                    
+                    self?.totalItems.accept(searchResult?.totalItems ?? 0)
+                    
+                    let oldItems = self?.items.value ?? []
+                    let newItems = oldItems + (searchResult?.items ?? [])
+                    self?.items.accept(newItems)
+                } catch let error{
+                    self?.showAlert.accept(error.errorMessage)
                 }
-                self?.totalItems.accept(searchResult.totalItems ?? 0)
-                
-                let oldItems = self?.items.value ?? []
-                let newItems = oldItems + (searchResult.items ?? [])
-                self?.items.accept(newItems)
-                
             case .failure(let error):
-                print(error) // 추후 얼럿 표시 기능 구현 필요
+                self?.showAlert.accept(error.errorMessage)
             }
             self?.stopLoading.accept(())
         }

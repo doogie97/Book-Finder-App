@@ -73,7 +73,7 @@ final class MainViewController: UIViewController {
             .disposed(by: disposeBag)
         
         viewModel.startLoading
-            .bind(onNext: {[weak self] in
+            .bind(onNext: { [weak self] in
                 self?.mainView.activityIndicator.startAnimating()
             })
             .disposed(by: disposeBag)
@@ -81,6 +81,12 @@ final class MainViewController: UIViewController {
         viewModel.stopLoading
             .bind(onNext: {[weak self] in
                 self?.mainView.activityIndicator.stopAnimating()
+            })
+            .disposed(by: disposeBag)
+        
+        viewModel.showAlert
+            .bind(onNext: { [weak self] in
+                self?.showAlert(message: $0)
             })
             .disposed(by: disposeBag)
     }
