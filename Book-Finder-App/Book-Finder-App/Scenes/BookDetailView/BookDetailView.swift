@@ -42,41 +42,7 @@ final class BookDetailView: UIView {
     
     private lazy var contentsView = UIView()
     
-    private lazy var bookImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.backgroundColor = .systemGray5
-        
-        return imageView
-    }()
-    
-    private lazy var noImageLabel: UILabel = {
-        let label = UILabel()
-        label.textAlignment = .center
-        label.font = .systemFont(ofSize: 15, weight: .regular)
-        label.text = "이미지 없음"
-        label.isHidden = true
-        
-        return label
-    }()
-    
-    private lazy var mainTitleLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 20, weight: .bold)
-        label.textAlignment = .center
-        label.numberOfLines = 0
-        
-        return label
-    }()
-    
-    private lazy var authorsLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 15, weight: .regular)
-        label.textColor = .systemGray
-        label.textAlignment = .center
-        label.numberOfLines = 0
-        
-        return label
-    }()
+    private lazy var mainInfoView = BookMainInfoView()
     
     private lazy var descriptionTitleLabel: UILabel = {
         let label = UILabel()
@@ -102,10 +68,7 @@ final class BookDetailView: UIView {
         navigationView.addSubview(backButton)
         navigationView.addSubview(navigationTitleLabel)
         self.addSubview(contentsView)
-        contentsView.addSubview(bookImageView)
-        contentsView.addSubview(noImageLabel)
-        contentsView.addSubview(mainTitleLabel)
-        contentsView.addSubview(authorsLabel)
+        contentsView.addSubview(mainInfoView)
         contentsView.addSubview(descriptionTitleLabel)
         contentsView.addSubview(descriptionLabel)
         
@@ -130,31 +93,16 @@ final class BookDetailView: UIView {
             $0.leading.trailing.bottom.equalToSuperview()
         }
         
-        bookImageView.snp.makeConstraints {
+        mainInfoView.snp.makeConstraints {
             $0.top.equalToSuperview().inset(16)
-            $0.centerX.equalToSuperview()
-            $0.width.equalTo(128)
-            $0.height.equalTo(bookImageView.snp.width).multipliedBy(1.45)
-        }
-        
-        noImageLabel.snp.makeConstraints {
-            $0.edges.equalTo(bookImageView)
-        }
-        
-        mainTitleLabel.snp.makeConstraints {
-            $0.top.equalTo(bookImageView.snp.bottom).offset(16)
             $0.leading.trailing.equalToSuperview()
         }
         
-        authorsLabel.snp.makeConstraints {
-            $0.top.equalTo(mainTitleLabel.snp.bottom).offset(8)
-            $0.leading.trailing.equalToSuperview()
-        }
         
         //아마 여기부터 두번째 뷰로 갈듯
         
         descriptionTitleLabel.snp.makeConstraints {
-            $0.top.equalTo(authorsLabel.snp.bottom).offset(16)
+            $0.top.equalTo(mainInfoView.snp.bottom).offset(16)
             $0.leading.trailing.equalToSuperview().inset(24)
         }
         
@@ -165,15 +113,11 @@ final class BookDetailView: UIView {
     }
     
     func setViewContents(bookInfo: BookInfo) {
-        if let imageURL = bookInfo.volumeInfo?.imageLinks?.thumbnail {
-            _ = bookImageView.setImage(urlString: imageURL)
-        } else {
-            noImageLabel.isHidden = false
-        }
+        mainInfoView.setViewLayout(imageURL: bookInfo.volumeInfo?.imageLinks?.thumbnail,
+                                   title: bookInfo.volumeInfo?.title,
+                                   authors: bookInfo.volumeInfo?.authors?.joined(separator: ", "))
         
         navigationTitleLabel.text = bookInfo.volumeInfo?.title
-        mainTitleLabel.text = bookInfo.volumeInfo?.title
-        authorsLabel.text = bookInfo.volumeInfo?.authors?.joined(separator: ", ")
         descriptionLabel.text = (bookInfo.volumeInfo?.description)
     }
 }
