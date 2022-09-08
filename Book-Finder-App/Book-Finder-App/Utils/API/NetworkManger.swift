@@ -7,7 +7,11 @@
 
 import Foundation
 
-struct NetworkManger {
+protocol NetworkMangerable {
+    func request(api: APIable, completion: @escaping (Result<Data, APIError>) -> Void)
+}
+
+struct NetworkManger: NetworkMangerable {
     private let session = URLSession.shared
     
     func request(api: APIable, completion: @escaping (Result<Data, APIError>) -> Void) {
