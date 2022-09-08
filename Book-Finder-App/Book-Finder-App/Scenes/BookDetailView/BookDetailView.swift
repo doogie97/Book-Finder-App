@@ -19,13 +19,15 @@ final class BookDetailView: UIView {
     
     private lazy var navigationView: UIView = {
         let view = UIView()
-        view.backgroundColor = .red
+
         return view
     }()
     
     private(set) lazy var backButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(systemName: "chevron.left"), for: .normal)
+        button.imageView?.tintColor = .gray
+        button.setPreferredSymbolConfiguration(.init(pointSize: 20, weight: .regular, scale: .default), forImageIn: .normal)
         
         return button
     }()
@@ -41,7 +43,9 @@ final class BookDetailView: UIView {
         }
         
         backButton.snp.makeConstraints {
-            $0.edges.equalToSuperview().inset(self.safeAreaInset.top)
+            $0.top.equalToSuperview().inset(self.safeAreaInset.top + 16)
+            $0.leading.equalToSuperview().inset(16)
+            $0.bottom.equalToSuperview().inset(16)
         }
     }
 }
