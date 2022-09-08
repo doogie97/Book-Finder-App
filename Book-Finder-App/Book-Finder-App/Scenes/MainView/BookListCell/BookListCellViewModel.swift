@@ -38,7 +38,7 @@ final class BookListCellViewModel: BookListCellViewModelable {
         if authorsCount <= 1 {
             return bookInfo.volumeInfo?.authors?[safe: 0] ?? "알 수 없음"
         } else {
-            return (bookInfo.volumeInfo?.authors?[safe: 0] ?? "") + " 외 \(authorsCount)명"
+            return (bookInfo.volumeInfo?.authors?[safe: 0] ?? "") + " 외 \(authorsCount - 1)명"
         }
     }
     
