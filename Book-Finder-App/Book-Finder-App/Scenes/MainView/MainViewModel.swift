@@ -19,6 +19,7 @@ protocol MainViewModelOutput {
     var items: BehaviorRelay<[BookInfo]> { get }
     var startLoading: PublishRelay<Void> { get }
     var stopLoading: PublishRelay<Void> { get }
+    var showAlert: PublishRelay<String?> { get }
 }
 
 final class MainViewModel: MainViewModelable {
@@ -73,4 +74,5 @@ final class MainViewModel: MainViewModelable {
     let items = BehaviorRelay<[BookInfo]>(value: [])
     let startLoading = PublishRelay<Void>()
     let stopLoading = PublishRelay<Void>()
+    let showAlert = PublishRelay<String?>()
 }
