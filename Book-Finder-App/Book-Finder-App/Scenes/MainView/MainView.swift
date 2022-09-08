@@ -54,12 +54,7 @@ final class MainView: UIView {
         return label
     }()
     
-    private lazy var underLineView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .systemGray4
-        
-        return view
-    }()
+    private lazy var underLineView = colorEemptyView(color: .systemGray4)
     
     private(set) lazy var activityIndicator: UIActivityIndicatorView = {
         let activityIndicator = UIActivityIndicatorView()

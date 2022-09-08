@@ -11,4 +11,11 @@ extension UIView {
     var safeAreaInset : UIEdgeInsets {
         return UIApplication.shared.windows.filter {$0.isKeyWindow}.first?.safeAreaInsets ?? UIEdgeInsets()
     }
+    
+    func colorEemptyView(color: UIColor) -> UIView {
+        let view = UIView()
+        view.backgroundColor = color
+        
+        return view
+    }
 }

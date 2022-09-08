@@ -72,12 +72,7 @@ final class BookListCell: UICollectionViewCell {
         return imageView
     }()
     
-    private lazy var underLineView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .systemGray4
-        
-        return view
-    }()
+    private lazy var underLineView = colorEemptyView(color: .systemGray4)
     
     private func setLayout() {
         self.contentView.addSubview(thumbnailImageView)
