@@ -28,6 +28,7 @@ final class BookDetailView: UIView {
         button.setImage(UIImage(systemName: "chevron.left"), for: .normal)
         button.imageView?.tintColor = .gray
         button.setPreferredSymbolConfiguration(.init(pointSize: 20, weight: .regular, scale: .default), forImageIn: .normal)
+        button.setContentCompressionResistancePriority(.required, for: .horizontal)
         
         return button
     }()
