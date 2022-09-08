@@ -40,6 +40,8 @@ final class BookDetailView: UIView {
         return label
     }()
     
+    private lazy var scrollView = UIScrollView()
+    
     private lazy var contentsView = UIView()
     
     private lazy var mainInfoView = BookMainInfoView()
@@ -52,10 +54,11 @@ final class BookDetailView: UIView {
         navigationView.addSubview(backButton)
         navigationView.addSubview(navigationTitleLabel)
         
-        self.addSubview(contentsView)
+        self.addSubview(scrollView)
+        
+        scrollView.addSubview(contentsView)
         contentsView.addSubview(mainInfoView)
         contentsView.addSubview(descriptionView)
-  
         
         navigationView.snp.makeConstraints {
             $0.top.leading.trailing.equalToSuperview()
@@ -73,9 +76,14 @@ final class BookDetailView: UIView {
             $0.leading.greaterThanOrEqualTo(backButton.snp.trailing).offset(16)
         }
         
-        contentsView.snp.makeConstraints {
+        scrollView.snp.makeConstraints {
             $0.top.equalTo(navigationView.snp.bottom)
             $0.leading.trailing.bottom.equalToSuperview()
+        }
+        
+        contentsView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+            $0.width.equalToSuperview()
         }
         
         mainInfoView.snp.makeConstraints {
@@ -85,7 +93,7 @@ final class BookDetailView: UIView {
         
         descriptionView.snp.makeConstraints {
             $0.top.equalTo(mainInfoView.snp.bottom).offset(16)
-            $0.leading.trailing.equalToSuperview()
+            $0.leading.bottom.trailing.equalToSuperview()
         }
     }
     
