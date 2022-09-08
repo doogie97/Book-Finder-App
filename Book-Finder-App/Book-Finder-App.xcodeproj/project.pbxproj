@@ -31,6 +31,7 @@
 		AC9F9DFC28C76A7100CCBE07 /* testSearchResult.json in Resources */ = {isa = PBXBuildFile; fileRef = AC9F9DFB28C76A7100CCBE07 /* testSearchResult.json */; };
 		AC9F9DFE28C76B5600CCBE07 /* DataDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F9DFD28C76B5600CCBE07 /* DataDecoder.swift */; };
 		ACB9C94F28C7427D0061C492 /* NetworkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB9C94E28C7427D0061C492 /* NetworkHandler.swift */; };
+		ACBD1C0F28C9CF780030F2AE /* UIView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBD1C0E28C9CF780030F2AE /* UIView + Extension.swift */; };
 		ACCD094C28C8514800D06F29 /* Collection + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCD094B28C8514800D06F29 /* Collection + Extension.swift */; };
 		ACCD094E28C85E3000D06F29 /* UIImageView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCD094D28C85E3000D06F29 /* UIImageView + Extension.swift */; };
 		ACCD095028C871B000D06F29 /* BookListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCD094F28C871B000D06F29 /* BookListCellViewModel.swift */; };
@@ -88,6 +89,7 @@
 		AC9F9DFB28C76A7100CCBE07 /* testSearchResult.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = testSearchResult.json; sourceTree = "<group>"; };
 		AC9F9DFD28C76B5600CCBE07 /* DataDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDecoder.swift; sourceTree = "<group>"; };
 		ACB9C94E28C7427D0061C492 /* NetworkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHandler.swift; sourceTree = "<group>"; };
+		ACBD1C0E28C9CF780030F2AE /* UIView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extension.swift"; sourceTree = "<group>"; };
 		ACCD094B28C8514800D06F29 /* Collection + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection + Extension.swift"; sourceTree = "<group>"; };
 		ACCD094D28C85E3000D06F29 /* UIImageView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView + Extension.swift"; sourceTree = "<group>"; };
 		ACCD094F28C871B000D06F29 /* BookListCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListCellViewModel.swift; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 				ACCD094B28C8514800D06F29 /* Collection + Extension.swift */,
 				ACCD094D28C85E3000D06F29 /* UIImageView + Extension.swift */,
 				AC80C2C828C9943E00297C85 /* UIViewController + Extension.swift */,
+				ACBD1C0E28C9CF780030F2AE /* UIView + Extension.swift */,
 				AC80C2CA28C99B5600297C85 /* Error + Extension.swift */,
 			);
 			path = Extension;
@@ -558,6 +561,7 @@
 				ACCD094E28C85E3000D06F29 /* UIImageView + Extension.swift in Sources */,
 				AC80C2C928C9943E00297C85 /* UIViewController + Extension.swift in Sources */,
 				AC80C2D028C9BF0C00297C85 /* BookDetailViewModel.swift in Sources */,
+				ACBD1C0F28C9CF780030F2AE /* UIView + Extension.swift in Sources */,
 				ACD5213E28C7B66C0027F653 /* Container.swift in Sources */,
 				AC9F9DEF28C74E6200CCBE07 /* APIError.swift in Sources */,
 				ACD5213628C79B220027F653 /* MainViewModel.swift in Sources */,
