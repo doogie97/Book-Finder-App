@@ -69,6 +69,12 @@ final class MainViewController: UIViewController {
             })
             .disposed(by: disposeBag)
         
+        mainView.bookListCollectionView.rx.itemSelected
+            .bind(onNext: { [weak self] in
+                self?.viewModel.touchCell($0.row)
+            })
+            .disposed(by: disposeBag)
+        
         viewModel.startLoading
             .bind(onNext: { [weak self] in
                 self?.mainView.activityIndicator.startAnimating()
