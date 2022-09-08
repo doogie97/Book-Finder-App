@@ -92,5 +92,15 @@ final class MainViewController: UIViewController {
                 self?.showAlert(message: $0)
             })
             .disposed(by: disposeBag)
+        
+        viewModel.showBookDetail
+            .bind(onNext: { [weak self] in
+                guard let bookDetailVC = self?.container.bookDetailViewController(bookInfo: $0) else {
+                    return
+                }
+                
+                self?.navigationController?.pushViewController(bookDetailVC, animated: true)
+            })
+            .disposed(by: disposeBag)
     }
 }
