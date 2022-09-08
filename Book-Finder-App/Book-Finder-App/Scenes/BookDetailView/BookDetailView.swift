@@ -63,5 +63,7 @@ final class BookDetailView: UIView {
         }
     }
     
+    func setViewContents(bookInfo: BookInfo) {
+        titleLabel.text = bookInfo.volumeInfo?.title
     }
 }

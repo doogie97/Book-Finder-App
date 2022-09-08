@@ -29,6 +29,7 @@ final class BookDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         bindView()
+        bookDetailView.setViewContents(bookInfo: viewModel.bookInfo)
     }
     
     private func bindView() {
