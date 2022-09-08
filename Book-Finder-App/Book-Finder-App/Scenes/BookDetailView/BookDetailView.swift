@@ -33,7 +33,7 @@ final class BookDetailView: UIView {
         return button
     }()
     
-    private lazy var titleLabel: UILabel = {
+    private lazy var navigationTitleLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 18, weight: .semibold)
         
@@ -73,7 +73,7 @@ final class BookDetailView: UIView {
         
         self.addSubview(navigationView)
         navigationView.addSubview(backButton)
-        navigationView.addSubview(titleLabel)
+        navigationView.addSubview(navigationTitleLabel)
         self.addSubview(contentsView)
         contentsView.addSubview(bookImageView)
         contentsView.addSubview(noImageLabel)
@@ -89,7 +89,7 @@ final class BookDetailView: UIView {
             $0.bottom.equalToSuperview().inset(16)
         }
         
-        titleLabel.snp.makeConstraints {
+        navigationTitleLabel.snp.makeConstraints {
             $0.centerY.equalTo(backButton.snp.centerY)
             $0.centerX.equalToSuperview()
             $0.leading.greaterThanOrEqualTo(backButton.snp.trailing).offset(16)
@@ -118,12 +118,13 @@ final class BookDetailView: UIView {
     }
     
     func setViewContents(bookInfo: BookInfo) {
-        titleLabel.text = bookInfo.volumeInfo?.title
         if let imageURL = bookInfo.volumeInfo?.imageLinks?.thumbnail {
             _ = bookImageView.setImage(urlString: imageURL)
         } else {
             noImageLabel.isHidden = false
         }
+        
+        navigationTitleLabel.text = bookInfo.volumeInfo?.title
         mainTitleLabel.text = bookInfo.volumeInfo?.title
     }
 }
