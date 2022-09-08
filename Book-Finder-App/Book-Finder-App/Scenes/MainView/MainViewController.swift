@@ -25,6 +25,7 @@ final class MainViewController: UIViewController {
     
     private let mainView = MainView()
     private let disposeBag = DisposeBag()
+    private let searchController = UISearchController()
     
     override func loadView() {
         self.view = mainView
@@ -33,13 +34,21 @@ final class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         bindView()
+        setNavigationBar()
+    }
+    
+    private func setNavigationBar() {
+        self.title = "Search"
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationItem.searchController = searchController
+        self.navigationController?.hidesBarsOnSwipe = true
     }
     
     private func bindView() {
-        mainView.searchBar.searchTextField.rx.controlEvent(.editingDidEndOnExit)
+        searchController.searchBar.searchTextField.rx.controlEvent(.editingDidEndOnExit)
             .bind(onNext: { [weak self] in
                 self?.view.endEditing(true)
-                self?.viewModel.touchSearchButton(self?.mainView.searchBar.text)
+                self?.viewModel.touchSearchButton(self?.searchController.searchBar.text)
             })
             .disposed(by: disposeBag)
         

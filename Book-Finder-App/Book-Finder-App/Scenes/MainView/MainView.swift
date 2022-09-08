@@ -16,29 +16,6 @@ final class MainView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    private lazy var navigationStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [titleLabel, searchBar])
-        stackView.axis = .vertical
-        
-        return stackView
-    }()
-    
-    private lazy var titleLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 40, weight: .bold)
-        label.text = "Search"
-        
-        return label
-    }()
-    
-    private(set) lazy var searchBar: UISearchBar = {
-        let searchBar = UISearchBar()
-        searchBar.searchBarStyle = .minimal
-        
-        return searchBar
-    }()
-    
     private lazy var resultsView = colorEemptyView(color: .systemGray6)
     
     private lazy var resultsLabel: UILabel = {
@@ -93,38 +70,26 @@ final class MainView: UIView {
     
     private func setLayout() {
         self.backgroundColor = .systemBackground
-        
-        self.addSubview(navigationStackView)
-        self.addSubview(resultsView)
+//        self.addSubview(resultsView) //추 후 콜렉션뷰 바꾸고 헤더로 추가 예정
         self.addSubview(bookListCollectionView)
         self.addSubview(activityIndicator)
         self.addSubview(instructionLabel)
-        
-        resultsView.addSubview(resultsLabel)
-        resultsView.addSubview(underLineView)
-        
-        navigationStackView.snp.makeConstraints {
-            $0.top.leading.trailing.equalTo(safeAreaLayoutGuide).inset(16)
-        }
-        
-        resultsView.snp.makeConstraints {
-            $0.top.equalTo(navigationStackView.snp.bottom)
-            $0.trailing.leading.equalToSuperview()
-            $0.height.equalTo(45)
-        }
+//        
+//        resultsView.addSubview(resultsLabel)
+//        resultsView.addSubview(underLineView)
 
-        resultsLabel.snp.makeConstraints {
-            $0.leading.equalToSuperview().inset(16)
-            $0.centerY.equalToSuperview()
-        }
-        
-        underLineView.snp.makeConstraints {
-            $0.height.equalTo(1)
-            $0.trailing.leading.bottom.equalToSuperview()
-        }
+//        resultsLabel.snp.makeConstraints {
+//            $0.leading.equalToSuperview().inset(16)
+//            $0.centerY.equalToSuperview()
+//        }
+//
+//        underLineView.snp.makeConstraints {
+//            $0.height.equalTo(1)
+//            $0.trailing.leading.bottom.equalToSuperview()
+//        }
         
         bookListCollectionView.snp.makeConstraints {
-            $0.top.equalTo(resultsView.snp.bottom)
+            $0.top.equalToSuperview()
             $0.leading.trailing.bottom.equalToSuperview()
         }
         
