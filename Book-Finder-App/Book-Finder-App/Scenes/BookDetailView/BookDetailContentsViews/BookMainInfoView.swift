@@ -81,7 +81,7 @@ final class BookMainInfoView: UIView {
         }
     }
     
-    func setViewLayout(imageURL: String?, title: String?, authors: String?) {
+    func setViewContents(imageURL: String?, title: String?, authors: String?) {
         if let imageURL = imageURL {
             _ = bookImageView.setImage(urlString: imageURL)
         } else {
