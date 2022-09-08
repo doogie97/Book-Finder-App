@@ -19,7 +19,7 @@ struct APIModel: APIable {
         return ["q": bookTitle,
                 "startIndex": String(startIndex),
                 "maxResults": String(maxResult),
-                "projection": "lite"]
+                "projection": "full"]
     }
     let method: HTTPMethod
 }
