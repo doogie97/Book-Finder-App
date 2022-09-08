@@ -28,21 +28,11 @@ final class BookDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        bindView()
         bookDetailView.setViewContents(bookInfo: viewModel.bookInfo)
+        setNavigationBar()
     }
     
-    private func bindView() {
-        bookDetailView.backButton.rx.tap
-            .bind(onNext: { [weak self] in
-                self?.viewModel.touchBackButton()
-            })
-            .disposed(by: disposeBag)
-        
-        viewModel.popView
-            .bind(onNext: { [weak self] in
-                self?.navigationController?.popViewController(animated: true)
-            })
-            .disposed(by: disposeBag)
+    private func setNavigationBar() {
+        self.title = viewModel.bookInfo.volumeInfo?.title
     }
 }

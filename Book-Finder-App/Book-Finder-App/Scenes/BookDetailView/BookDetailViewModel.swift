@@ -9,13 +9,10 @@ import RxRelay
 
 protocol BookDetailViewModelable: BookDetailViewModelInput, BookDetailViewModelOutput {}
 
-protocol BookDetailViewModelInput {
-    func touchBackButton()
-}
+protocol BookDetailViewModelInput {}
 
 protocol BookDetailViewModelOutput {
     var bookInfo: BookInfo { get }
-    var popView: PublishRelay<Void> { get }
 }
 
 final class BookDetailViewModel: BookDetailViewModelable {
@@ -23,12 +20,6 @@ final class BookDetailViewModel: BookDetailViewModelable {
         self.bookInfo = bookInfo
     }
     
-    //in
-    func touchBackButton() {
-        popView.accept(())
-    }
-    
     //out
     let bookInfo: BookInfo
-    let popView = PublishRelay<Void>()
 }

@@ -41,7 +41,6 @@ final class MainViewController: UIViewController {
         self.title = "Search"
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationItem.searchController = searchController
-        self.navigationController?.hidesBarsOnSwipe = true
     }
     
     private func bindView() {

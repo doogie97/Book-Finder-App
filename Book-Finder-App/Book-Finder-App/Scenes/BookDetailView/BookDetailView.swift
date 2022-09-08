@@ -17,27 +17,6 @@ final class BookDetailView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private lazy var navigationView = UIView()
-    
-    private(set) lazy var backButton: UIButton = {
-        let button = UIButton()
-        button.setImage(UIImage(systemName: "chevron.left"), for: .normal)
-        button.imageView?.tintColor = .gray
-        button.setPreferredSymbolConfiguration(.init(pointSize: 20, weight: .regular, scale: .default), forImageIn: .normal)
-        button.setContentCompressionResistancePriority(.required, for: .horizontal)
-        
-        return button
-    }()
-    
-    private lazy var navigationTitleLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 18, weight: .semibold)
-        
-        return label
-    }()
-    
-    private lazy var underLineView = colorEemptyView(color: .systemGray3)
-    
     private lazy var scrollView = UIScrollView()
     
     private lazy var contentsView = UIView()
@@ -50,11 +29,6 @@ final class BookDetailView: UIView {
     private func setLayout() {
         self.backgroundColor = .systemBackground
         
-        self.addSubview(navigationView)
-        navigationView.addSubview(backButton)
-        navigationView.addSubview(navigationTitleLabel)
-        navigationView.addSubview(underLineView)
-        
         self.addSubview(scrollView)
         
         scrollView.addSubview(contentsView)
@@ -62,31 +36,9 @@ final class BookDetailView: UIView {
         contentsView.addSubview(subInfoView)
         contentsView.addSubview(descriptionView)
         contentsView.addSubview(publishInfoView)
-        
-        navigationView.snp.makeConstraints {
-            $0.top.leading.trailing.equalToSuperview()
-        }
-        
-        backButton.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(self.safeAreaInset.top + 16)
-            $0.leading.equalToSuperview().inset(16)
-            $0.bottom.equalToSuperview().inset(16)
-        }
-        
-        underLineView.snp.makeConstraints {
-            $0.height.equalTo(0.5)
-            $0.leading.trailing.bottom.equalToSuperview()
-        }
-        
-        navigationTitleLabel.snp.makeConstraints {
-            $0.centerY.equalTo(backButton.snp.centerY)
-            $0.centerX.equalToSuperview()
-            $0.leading.greaterThanOrEqualTo(backButton.snp.trailing).offset(16)
-        }
-        
+
         scrollView.snp.makeConstraints {
-            $0.top.equalTo(navigationView.snp.bottom)
-            $0.leading.trailing.bottom.equalToSuperview()
+            $0.top.leading.trailing.bottom.equalToSuperview()
         }
         
         contentsView.snp.makeConstraints {
@@ -116,8 +68,6 @@ final class BookDetailView: UIView {
     }
     
     func setViewContents(bookInfo: BookInfo) {
-        navigationTitleLabel.text = bookInfo.volumeInfo?.title
-        
         mainInfoView.setViewContents(imageURL: bookInfo.volumeInfo?.imageLinks?.thumbnail,
                                    title: bookInfo.volumeInfo?.title,
                                    authors: bookInfo.volumeInfo?.authors?.joined(separator: ", "))
