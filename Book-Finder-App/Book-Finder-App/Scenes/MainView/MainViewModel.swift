@@ -68,13 +68,6 @@ final class MainViewModel: MainViewModelable {
         }
     }
     
-    private func errorMessage(_ error: Error) -> String {
-        guard let error = error as? APIError else {
-            return "알 수 없는 오류가 발생했습니다\n서비스 센터로 연락 부탁드립니다(02-0000-0000)"
-        }
-        return error.errorDescription
-    }
-    
     //out
     let totalItems = BehaviorRelay<Int>(value: 0)
     let items = BehaviorRelay<[BookInfo]>(value: [])

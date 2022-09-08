@@ -19,6 +19,7 @@
 		AC4895D828C73A1B003D230F /* Book_Finder_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4895D728C73A1B003D230F /* Book_Finder_AppUITests.swift */; };
 		AC4895DA28C73A1B003D230F /* Book_Finder_AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4895D928C73A1B003D230F /* Book_Finder_AppUITestsLaunchTests.swift */; };
 		AC80C2C928C9943E00297C85 /* UIViewController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC80C2C828C9943E00297C85 /* UIViewController + Extension.swift */; };
+		AC80C2CB28C99B5600297C85 /* Error + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC80C2CA28C99B5600297C85 /* Error + Extension.swift */; };
 		AC9F9DEF28C74E6200CCBE07 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F9DEE28C74E6200CCBE07 /* APIError.swift */; };
 		AC9F9DF128C7582900CCBE07 /* APIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F9DF028C7582900CCBE07 /* APIModel.swift */; };
 		AC9F9DF328C758A700CCBE07 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F9DF228C758A700CCBE07 /* HTTPMethod.swift */; };
@@ -72,6 +73,7 @@
 		AC4895D728C73A1B003D230F /* Book_Finder_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book_Finder_AppUITests.swift; sourceTree = "<group>"; };
 		AC4895D928C73A1B003D230F /* Book_Finder_AppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book_Finder_AppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		AC80C2C828C9943E00297C85 /* UIViewController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Extension.swift"; sourceTree = "<group>"; };
+		AC80C2CA28C99B5600297C85 /* Error + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error + Extension.swift"; sourceTree = "<group>"; };
 		AC9F9DEE28C74E6200CCBE07 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		AC9F9DF028C7582900CCBE07 /* APIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIModel.swift; sourceTree = "<group>"; };
 		AC9F9DF228C758A700CCBE07 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 				ACCD094B28C8514800D06F29 /* Collection + Extension.swift */,
 				ACCD094D28C85E3000D06F29 /* UIImageView + Extension.swift */,
 				AC80C2C828C9943E00297C85 /* UIViewController + Extension.swift */,
+				AC80C2CA28C99B5600297C85 /* Error + Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -522,6 +525,7 @@
 				AC9F9DFA28C7687400CCBE07 /* BookInfo.swift in Sources */,
 				ACCD095328C87B7F00D06F29 /* ImageCacheManager.swift in Sources */,
 				AC9F9DFE28C76B5600CCBE07 /* DataDecoder.swift in Sources */,
+				AC80C2CB28C99B5600297C85 /* Error + Extension.swift in Sources */,
 				AC9F9DF128C7582900CCBE07 /* APIModel.swift in Sources */,
 				AC9F9DF828C763BE00CCBE07 /* SearchResult.swift in Sources */,
 				ACD5213A28C7B3F20027F653 /* BookListCell.swift in Sources */,
