@@ -19,5 +19,5 @@ final class BookDetailViewModel: BookDetailViewModelable {
     }
     
     //out
-    var bookInfo: BookInfo
+    let bookInfo: BookInfo
 }
