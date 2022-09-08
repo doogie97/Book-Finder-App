@@ -123,7 +123,10 @@ final class BookSubInfoView: UIView {
         }
     }
     
-    func setViewContents(subTitle: String?) {
+    func setViewContents(subTitle: String?, categories: String?, pageCount: Int?, isbn: String?) {
         subTitleLabel.text = subTitle
+        categoriesLabel.text = categories ?? "분류 없음"
+        pageCountLabel.text = pageCount?.description ?? "정보 없음"
+        isbnLabel.text = isbn ?? "정보 없음"
     }
 }

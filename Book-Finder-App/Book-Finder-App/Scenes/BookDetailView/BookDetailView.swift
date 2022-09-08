@@ -111,7 +111,10 @@ final class BookDetailView: UIView {
                                    title: bookInfo.volumeInfo?.title,
                                    authors: bookInfo.volumeInfo?.authors?.joined(separator: ", "))
         
-        subInfoView.setViewContents(subTitle: bookInfo.volumeInfo?.subtitle)
+        subInfoView.setViewContents(subTitle: bookInfo.volumeInfo?.subtitle,
+                                    categories: bookInfo.volumeInfo?.categories?.joined(separator: ", "),
+                                    pageCount: bookInfo.volumeInfo?.pageCount,
+                                    isbn: bookInfo.volumeInfo?.industryIdentifiers?.first?.isbn)
         
         descriptionView.setViewContents(description: bookInfo.volumeInfo?.description)
     }
