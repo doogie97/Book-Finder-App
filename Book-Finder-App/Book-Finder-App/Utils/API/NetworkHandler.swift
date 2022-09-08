@@ -9,7 +9,6 @@ import Foundation
 
 struct NetworkHandler {
     private let session = URLSession.shared
-    private let baseURL = "https://www.googleapis.com/books/v1/volumes/"
     
     func request(api: APIable, completion: @escaping (Result<Data, APIError>) -> Void) {
         guard let url = makeURL(api: api) else {
@@ -44,7 +43,7 @@ struct NetworkHandler {
     }
     
     private func makeURL(api: APIable) -> URL? {
-        var component = URLComponents(string: baseURL)
+        var component = URLComponents(string: api.host + api.path)
         
         component?.queryItems = api.params?.compactMap {
             URLQueryItem(name: $0.key, value: $0.value)

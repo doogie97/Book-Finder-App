@@ -7,12 +7,16 @@
 
 protocol APIable {
     var bookTitle: String { get }
+    var host: String { get }
+    var path: String { get }
     var params: [String: String]? { get }
     var method: HTTPMethod { get }
 }
 
 struct APIModel: APIable {
     let bookTitle: String
+    let host = "https://www.googleapis.com"
+    let path = "/books/v1/volumes/"
     let startIndex: Int
     let maxResult: Int
     var params: [String: String]? {
