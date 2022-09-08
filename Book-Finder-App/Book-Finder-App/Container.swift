@@ -18,4 +18,8 @@ final class Container {
     func bookListCellViewModel(bookInfo: BookInfo) -> BookListCellViewModelable {
         return BookListCellViewModel(bookInfo: bookInfo)
     }
+    
+    private func bookDetailViewModel(bookInfo: BookInfo) -> BookDetailViewModelable {
+        return BookDetailViewModel(bookInfo: bookInfo)
+    }
 }
