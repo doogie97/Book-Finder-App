@@ -48,6 +48,17 @@ final class BookDetailView: UIView {
         
         return imageView
     }()
+    
+    private lazy var noImageLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.font = .systemFont(ofSize: 15, weight: .regular)
+        label.text = "이미지 없음"
+        label.isHidden = true
+        
+        return label
+    }()
+    
     private func setLayout() {
         self.backgroundColor = .systemBackground
         
@@ -56,6 +67,7 @@ final class BookDetailView: UIView {
         navigationView.addSubview(titleLabel)
         self.addSubview(contentsView)
         contentsView.addSubview(bookImageView)
+        contentsView.addSubview(noImageLabel)
         
         navigationView.snp.makeConstraints {
             $0.top.leading.trailing.equalToSuperview()
@@ -84,6 +96,10 @@ final class BookDetailView: UIView {
             $0.width.equalTo(128)
             $0.height.equalTo(bookImageView.snp.width).multipliedBy(1.45)
         }
+        
+        noImageLabel.snp.makeConstraints {
+            $0.edges.equalTo(bookImageView)
+        }
     }
     
     func setViewContents(bookInfo: BookInfo) {
@@ -91,5 +107,7 @@ final class BookDetailView: UIView {
         if let imageURL = bookInfo.volumeInfo?.imageLinks?.thumbnail {
             _ = bookImageView.setImage(urlString: imageURL)
         } else {
+            noImageLabel.isHidden = false
+        }
     }
 }
