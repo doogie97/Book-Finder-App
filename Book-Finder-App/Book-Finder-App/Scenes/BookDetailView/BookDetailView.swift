@@ -41,6 +41,13 @@ final class BookDetailView: UIView {
     }()
     
     private lazy var contentsView = UIView()
+    
+    private lazy var bookImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.backgroundColor = .systemGray5
+        
+        return imageView
+    }()
     private func setLayout() {
         self.backgroundColor = .systemBackground
         
@@ -48,6 +55,7 @@ final class BookDetailView: UIView {
         navigationView.addSubview(backButton)
         navigationView.addSubview(titleLabel)
         self.addSubview(contentsView)
+        contentsView.addSubview(bookImageView)
         
         navigationView.snp.makeConstraints {
             $0.top.leading.trailing.equalToSuperview()
@@ -69,9 +77,19 @@ final class BookDetailView: UIView {
             $0.top.equalTo(navigationView.snp.bottom)
             $0.leading.trailing.bottom.equalToSuperview()
         }
+        
+        bookImageView.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(16)
+            $0.centerX.equalToSuperview()
+            $0.width.equalTo(128)
+            $0.height.equalTo(bookImageView.snp.width).multipliedBy(1.45)
+        }
     }
     
     func setViewContents(bookInfo: BookInfo) {
         titleLabel.text = bookInfo.volumeInfo?.title
+        if let imageURL = bookInfo.volumeInfo?.imageLinks?.thumbnail {
+            _ = bookImageView.setImage(urlString: imageURL)
+        } else {
     }
 }
