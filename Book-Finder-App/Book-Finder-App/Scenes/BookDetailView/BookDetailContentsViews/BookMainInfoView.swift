@@ -53,11 +53,19 @@ final class BookMainInfoView: UIView {
         return label
     }()
     
+    private lazy var sepratorView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .systemGray6
+        
+        return view
+    }()
+    
     private func setLayout() {
         self.addSubview(bookImageView)
         self.addSubview(noImageLabel)
         self.addSubview(bookTitleLabel)
         self.addSubview(authorsLabel)
+        self.addSubview(sepratorView)
         
         bookImageView.snp.makeConstraints {
             $0.top.equalToSuperview()
@@ -77,6 +85,12 @@ final class BookMainInfoView: UIView {
         
         authorsLabel.snp.makeConstraints {
             $0.top.equalTo(bookTitleLabel.snp.bottom).offset(8)
+            $0.leading.trailing.equalToSuperview()
+        }
+
+        sepratorView.snp.makeConstraints {
+            $0.height.equalTo(16)
+            $0.top.equalTo(authorsLabel.snp.bottom).offset(16)
             $0.leading.trailing.bottom.equalToSuperview()
         }
     }

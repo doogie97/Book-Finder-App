@@ -46,7 +46,7 @@ final class BookDescriptionView: UIView {
         descriptionLabel.snp.makeConstraints {
             $0.top.equalTo(descriptionTitleLabel.snp.bottom).offset(16)
             $0.leading.trailing.equalToSuperview().inset(24)
-            $0.bottom.equalToSuperview()
+            $0.bottom.equalToSuperview().inset(16)
         }
     }
     
