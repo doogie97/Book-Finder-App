@@ -5,12 +5,17 @@
 //  Created by 최최성균 on 2022/09/08.
 //
 
+import RxRelay
+
 protocol BookDetailViewModelable: BookDetailViewModelInput, BookDetailViewModelOutput {}
 
-protocol BookDetailViewModelInput {}
+protocol BookDetailViewModelInput {
+    func touchBackButton()
+}
 
 protocol BookDetailViewModelOutput {
     var bookInfo: BookInfo { get }
+    var popView: PublishRelay<Void> { get }
 }
 
 final class BookDetailViewModel: BookDetailViewModelable {
@@ -18,6 +23,12 @@ final class BookDetailViewModel: BookDetailViewModelable {
         self.bookInfo = bookInfo
     }
     
+    //in
+    func touchBackButton() {
+        
+    }
+    
     //out
     let bookInfo: BookInfo
+    let popView = PublishRelay<Void>()
 }
