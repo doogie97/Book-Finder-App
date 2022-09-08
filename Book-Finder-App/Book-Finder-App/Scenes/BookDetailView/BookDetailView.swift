@@ -132,5 +132,8 @@ final class BookDetailView: UIView {
                                     isbn: bookInfo.volumeInfo?.industryIdentifiers?.first?.isbn)
         
         descriptionView.setViewContents(description: bookInfo.volumeInfo?.description)
+        
+        publishInfoView.setViewContents(publisher: bookInfo.volumeInfo?.publisher,
+                                        publishedDate: bookInfo.volumeInfo?.publishedDate)
     }
 }

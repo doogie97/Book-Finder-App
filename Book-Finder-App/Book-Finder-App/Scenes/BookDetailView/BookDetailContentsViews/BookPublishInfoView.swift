@@ -80,4 +80,9 @@ final class BookPublishInfoView: UIView {
             $0.bottom.equalToSuperview()
         }
     }
+    
+    func setViewContents(publisher: String?, publishedDate: String?) {
+        self.publisherLabel.text = publisher ?? "정보 없음"
+        self.publishedDateLabel.text = publishedDate ?? "정보 없음"
+    }
 }
