@@ -40,6 +40,8 @@ final class BookDetailView: UIView {
         return label
     }()
     
+    private lazy var underLineView = colorEemptyView(color: .systemGray3)
+    
     private lazy var scrollView = UIScrollView()
     
     private lazy var contentsView = UIView()
@@ -54,6 +56,7 @@ final class BookDetailView: UIView {
         self.addSubview(navigationView)
         navigationView.addSubview(backButton)
         navigationView.addSubview(navigationTitleLabel)
+        navigationView.addSubview(underLineView)
         
         self.addSubview(scrollView)
         
@@ -70,6 +73,11 @@ final class BookDetailView: UIView {
             $0.top.equalToSuperview().inset(self.safeAreaInset.top + 16)
             $0.leading.equalToSuperview().inset(16)
             $0.bottom.equalToSuperview().inset(16)
+        }
+        
+        underLineView.snp.makeConstraints {
+            $0.height.equalTo(0.5)
+            $0.leading.trailing.bottom.equalToSuperview()
         }
         
         navigationTitleLabel.snp.makeConstraints {
