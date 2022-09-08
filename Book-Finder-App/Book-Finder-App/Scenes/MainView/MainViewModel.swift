@@ -59,7 +59,14 @@ final class MainViewModel: MainViewModelable {
                 do {
                     let searchResult = try self?.dataDecoder.parse(data: data, resultType: SearchResult.self)
                     
-                    self?.totalItems.accept(searchResult?.totalItems ?? 0)
+                    guard let totalItems = searchResult?.totalItems, totalItems != 0 else {
+                        self?.showAlert.accept("검색 결과가 없습니다")
+                        self?.totalItems.accept(0)
+                        self?.stopLoading.accept(())
+                        return
+                    }
+    
+                    self?.totalItems.accept(totalItems)
                     
                     let oldItems = self?.items.value ?? []
                     let newItems = oldItems + (searchResult?.items ?? [])
