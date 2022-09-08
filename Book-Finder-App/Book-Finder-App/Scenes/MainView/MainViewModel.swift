@@ -12,6 +12,7 @@ protocol MainViewModelable: MainViewModelInput, MainViewModelOutput {}
 protocol MainViewModelInput {
     func touchSearchButton(_ text: String?)
     func scrolledEndPoint()
+    func touchCell(_ index: Int)
 }
 
 protocol MainViewModelOutput {
@@ -79,6 +80,10 @@ final class MainViewModel: MainViewModelable {
             }
             self?.stopLoading.accept(())
         }
+    }
+    
+    func touchCell(_ index: Int) {
+        print(index)
     }
     
     //out
