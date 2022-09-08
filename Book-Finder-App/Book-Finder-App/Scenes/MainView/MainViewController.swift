@@ -10,9 +10,9 @@ import RxCocoa
 
 final class MainViewController: UIViewController {
     private let viewModel: MainViewModelable
-    private let container: Container
+    private let container: Containerable
     
-    init(viewModel: MainViewModelable, container: Container) {
+    init(viewModel: MainViewModelable, container: Containerable) {
         self.viewModel = viewModel
         self.container = container
         

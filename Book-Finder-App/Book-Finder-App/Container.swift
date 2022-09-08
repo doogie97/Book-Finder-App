@@ -5,7 +5,13 @@
 //  Created by 최최성균 on 2022/09/07.
 //
 
-final class Container {
+protocol Containerable {
+    func mainViewController() -> MainViewController
+    func bookListCellViewModel(bookInfo: BookInfo) -> BookListCellViewModelable
+    func bookDetailViewController(bookInfo: BookInfo) -> BookDetailViewController
+}
+
+final class Container: Containerable {
     func mainViewController() -> MainViewController {
         return MainViewController(viewModel: mainViewModel(), container: self)
     }
