@@ -19,6 +19,10 @@ final class Container {
         return BookListCellViewModel(bookInfo: bookInfo)
     }
     
+    func bookDetailViewController(bookInfo: BookInfo) -> BookDetailViewController {
+        return BookDetailViewController(viewModel: bookDetailViewModel(bookInfo: bookInfo))
+    }
+    
     private func bookDetailViewModel(bookInfo: BookInfo) -> BookDetailViewModelable {
         return BookDetailViewModel(bookInfo: bookInfo)
     }
