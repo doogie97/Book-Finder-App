@@ -41,16 +41,22 @@ final class BookSubInfoView: UIView {
         return view
     }()
     
-    private lazy var categoriesTitleLabel = listTitleLabel(text: "카테고리 : ")
+    private let listTitleColor = UIColor.gray
     
-    private lazy var pageCountTitleLabel = listTitleLabel(text: "쪽수 : ")
+    private lazy var categoriesTitleLabel = listLabel(text: "카테고리 : ", color: listTitleColor)
+    private lazy var categoriesLabel = listLabel()
     
-    private lazy var isbnCountTitleLabel = listTitleLabel(text: "ISBN : ")
+    private lazy var pageCountTitleLabel = listLabel(text: "쪽수 : ", color: listTitleColor)
+    private lazy var pageCountLabel = listLabel()
     
-    private func listTitleLabel(text: String) -> UILabel {
+    private lazy var isbnTitleLabel = listLabel(text: "ISBN : ", color: listTitleColor)
+    private lazy var isbnLabel = listLabel()
+    
+    private func listLabel(text: String = "", color: UIColor = .label) -> UILabel {
         let label = UILabel()
         label.text = text
-        label.textColor = .gray
+        label.font = .systemFont(ofSize: 16, weight: .regular)
+        label.textColor = color
         
         return label
     }
