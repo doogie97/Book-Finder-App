@@ -24,6 +24,16 @@ final class BookSubInfoView: UIView {
         
         return label
     }()
+    
+    private lazy var subTitleLabel: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 16, weight: .regular)
+        label.textColor = .gray
+        label.numberOfLines = 0
+        
+        return label
+    }()
+    
     private lazy var sepratorView: UIView = {
         let view = UIView()
         view.backgroundColor = .systemGray6
@@ -34,16 +44,26 @@ final class BookSubInfoView: UIView {
     private func setLayout() {
         self.addSubview(subInfoTitleLabel)
         self.addSubview(sepratorView)
+        self.addSubview(subTitleLabel)
         
         subInfoTitleLabel.snp.makeConstraints {
             $0.top.equalToSuperview()
             $0.leading.trailing.equalToSuperview().inset(24)
         }
         
+        subTitleLabel.snp.makeConstraints {
+            $0.top.equalTo(subInfoTitleLabel.snp.bottom).offset(8)
+            $0.leading.trailing.equalToSuperview().inset(24)
+        }
+        
         sepratorView.snp.makeConstraints {
             $0.height.equalTo(16)
-            $0.top.equalTo(subInfoTitleLabel.snp.bottom).offset(16)
+            $0.top.equalTo(subTitleLabel.snp.bottom).offset(16)
             $0.leading.trailing.bottom.equalToSuperview()
         }
+    }
+    
+    func setViewContents(subTitle: String?) {
+        subTitleLabel.text = subTitle
     }
 }
