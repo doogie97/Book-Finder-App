@@ -7,11 +7,7 @@
 
 import SnapKit
 
-extension UIView {
-    var safeAreaInset : UIEdgeInsets {
-        return UIApplication.shared.windows.filter {$0.isKeyWindow}.first?.safeAreaInsets ?? UIEdgeInsets()
-    }
-    
+extension UIView {    
     func colorEemptyView(color: UIColor) -> UIView {
         let view = UIView()
         view.backgroundColor = color

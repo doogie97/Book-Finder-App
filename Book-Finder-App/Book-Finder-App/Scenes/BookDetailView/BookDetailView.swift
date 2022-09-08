@@ -68,7 +68,7 @@ final class BookDetailView: UIView {
         }
         
         backButton.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(self.safeAreaInset.top + 16)
+            $0.top.equalTo(safeAreaLayoutGuide).inset(16)
             $0.leading.equalToSuperview().inset(16)
             $0.bottom.equalToSuperview().inset(16)
         }

@@ -226,9 +226,9 @@
 			isa = PBXGroup;
 			children = (
 				AC80C2D128C9BF1500297C85 /* BookDetailViewController.swift */,
+				AC80C2CF28C9BF0C00297C85 /* BookDetailViewModel.swift */,
 				AC80C2CD28C9BF0400297C85 /* BookDetailView.swift */,
 				ACBBE02628C9EE8C001C818D /* BookDetailContentsViews */,
-				AC80C2CF28C9BF0C00297C85 /* BookDetailViewModel.swift */,
 			);
 			path = BookDetailView;
 			sourceTree = "<group>";
