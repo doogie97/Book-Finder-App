@@ -27,7 +27,8 @@ final class MainView: UIView {
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 40, weight: .bold)
-        label.text = "Search"
+        label.text = "📚 Book Finder"
+        label.textAlignment = .center
         
         return label
     }()
