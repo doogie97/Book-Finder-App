@@ -39,12 +39,7 @@ final class MainView: UIView {
         return searchBar
     }()
     
-    private lazy var resultsView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .systemGray6
-        
-        return view
-    }()
+    private lazy var resultsView = colorEemptyView(color: .systemGray6)
     
     private lazy var resultsLabel: UILabel = {
         let label = UILabel()

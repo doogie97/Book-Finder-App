@@ -17,11 +17,7 @@ final class BookDetailView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private lazy var navigationView: UIView = {
-        let view = UIView()
-
-        return view
-    }()
+    private lazy var navigationView = UIView()
     
     private(set) lazy var backButton: UIButton = {
         let button = UIButton()
