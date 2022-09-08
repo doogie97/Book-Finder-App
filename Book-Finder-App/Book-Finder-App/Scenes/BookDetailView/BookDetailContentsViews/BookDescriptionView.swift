@@ -51,7 +51,7 @@ final class BookDescriptionView: UIView {
     }
     
     func setViewContents(description: String?) {
-        descriptionLabel.text = description
+        descriptionLabel.text = description ?? "내용 없음"
     }
 }
 

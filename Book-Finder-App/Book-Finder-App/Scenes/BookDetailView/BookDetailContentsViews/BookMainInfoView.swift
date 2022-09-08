@@ -103,6 +103,6 @@ final class BookMainInfoView: UIView {
         }
         
         bookTitleLabel.text = title
-        authorsLabel.text = authors
+        authorsLabel.text = authors ?? "알 수 없음"
     }
 }
