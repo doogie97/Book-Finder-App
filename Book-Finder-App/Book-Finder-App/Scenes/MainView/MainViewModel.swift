@@ -10,7 +10,7 @@ import RxRelay
 protocol MainViewModelable: MainViewModelInput, MainViewModelOutput {}
 
 protocol MainViewModelInput {
-    func touchSearchButton(_ text: String)
+    func touchSearchButton(_ text: String?)
     func scrolledEndPoint()
 }
 
@@ -35,7 +35,10 @@ final class MainViewModel: MainViewModelable {
     }
     
     //in
-    func touchSearchButton(_ text: String) {
+    func touchSearchButton(_ text: String?) {
+        guard let text = text else {
+            return
+        }
         startIndex = 0
         searchText = text
         items.accept([])

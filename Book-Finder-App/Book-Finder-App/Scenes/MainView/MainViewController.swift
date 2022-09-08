@@ -38,11 +38,8 @@ final class MainViewController: UIViewController {
     private func bindView() {
         mainView.searchBar.searchTextField.rx.controlEvent(.editingDidEndOnExit)
             .bind(onNext: { [weak self] in
-                guard let text = self?.mainView.searchBar.text else {
-                    return
-                }
                 self?.view.endEditing(true)
-                self?.viewModel.touchSearchButton(text)
+                self?.viewModel.touchSearchButton(self?.mainView.searchBar.text)
             })
             .disposed(by: disposeBag)
         
