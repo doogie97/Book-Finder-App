@@ -40,12 +40,14 @@ final class BookDetailView: UIView {
         return label
     }()
     
+    private lazy var contentsView = UIView()
     private func setLayout() {
         self.backgroundColor = .systemBackground
         
         self.addSubview(navigationView)
         navigationView.addSubview(backButton)
         navigationView.addSubview(titleLabel)
+        self.addSubview(contentsView)
         
         navigationView.snp.makeConstraints {
             $0.top.leading.trailing.equalToSuperview()
@@ -61,6 +63,11 @@ final class BookDetailView: UIView {
             $0.centerY.equalTo(backButton.snp.centerY)
             $0.centerX.equalToSuperview()
             $0.leading.greaterThanOrEqualTo(backButton.snp.trailing).offset(16)
+        }
+        
+        contentsView.snp.makeConstraints {
+            $0.top.equalTo(navigationView.snp.bottom)
+            $0.leading.trailing.bottom.equalToSuperview()
         }
     }
     
