@@ -34,9 +34,12 @@ final class BookDescriptionView: UIView {
         return label
     }()
     
+    private lazy var separatorView = colorEemptyView(color: .systemGray6)
+    
     private func setLayout() {
         self.addSubview(descriptionTitleLabel)
         self.addSubview(descriptionLabel)
+        self.addSubview(separatorView)
 
         descriptionTitleLabel.snp.makeConstraints {
             $0.top.equalToSuperview()
@@ -46,7 +49,12 @@ final class BookDescriptionView: UIView {
         descriptionLabel.snp.makeConstraints {
             $0.top.equalTo(descriptionTitleLabel.snp.bottom).offset(16)
             $0.leading.trailing.equalToSuperview().inset(24)
-            $0.bottom.equalToSuperview().inset(16)
+        }
+        
+        separatorView.snp.makeConstraints {
+            $0.height.equalTo(16)
+            $0.top.equalTo(descriptionLabel.snp.bottom).offset(16)
+            $0.leading.trailing.bottom.equalToSuperview()
         }
     }
     

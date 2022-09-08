@@ -49,6 +49,7 @@ final class BookDetailView: UIView {
     private lazy var mainInfoView = BookMainInfoView()
     private lazy var subInfoView = BookSubInfoView()
     private lazy var descriptionView = BookDescriptionView()
+    private lazy var publishInfoView = BookPublishInfoView()
     
     private func setLayout() {
         self.backgroundColor = .systemBackground
@@ -64,6 +65,7 @@ final class BookDetailView: UIView {
         contentsView.addSubview(mainInfoView)
         contentsView.addSubview(subInfoView)
         contentsView.addSubview(descriptionView)
+        contentsView.addSubview(publishInfoView)
         
         navigationView.snp.makeConstraints {
             $0.top.leading.trailing.equalToSuperview()
@@ -108,7 +110,12 @@ final class BookDetailView: UIView {
         
         descriptionView.snp.makeConstraints {
             $0.top.equalTo(subInfoView.snp.bottom).offset(16)
-            $0.leading.bottom.trailing.equalToSuperview()
+            $0.leading.trailing.equalToSuperview()
+        }
+
+        publishInfoView.snp.makeConstraints {
+            $0.top.equalTo(descriptionView.snp.bottom).offset(16)
+            $0.leading.trailing.bottom.equalToSuperview()
         }
     }
     
