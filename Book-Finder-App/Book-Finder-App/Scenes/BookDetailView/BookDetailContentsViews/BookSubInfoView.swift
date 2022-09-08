@@ -41,6 +41,19 @@ final class BookSubInfoView: UIView {
         return view
     }()
     
+    private lazy var categoriesTitleLabel = listTitleLabel(text: "카테고리 : ")
+    
+    private lazy var pageCountTitleLabel = listTitleLabel(text: "쪽수 : ")
+    
+    private lazy var isbnCountTitleLabel = listTitleLabel(text: "ISBN : ")
+    
+    private func listTitleLabel(text: String) -> UILabel {
+        let label = UILabel()
+        label.text = text
+        label.textColor = .gray
+        
+        return label
+    }
     private func setLayout() {
         self.addSubview(subInfoTitleLabel)
         self.addSubview(sepratorView)
