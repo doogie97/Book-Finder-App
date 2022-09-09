@@ -12,7 +12,11 @@ protocol NetworkMangerable {
 }
 
 struct NetworkManger: NetworkMangerable {
-    private let session = URLSession.shared
+    private let session: URLSessionProtocol
+    
+    init(urlSession: URLSessionProtocol = URLSession.shared) {
+        self.session = urlSession
+    }
     
     func request(api: APIable, completion: @escaping (Result<Data, APIError>) -> Void) {
         guard let url = makeURL(api: api) else {
@@ -23,19 +27,19 @@ struct NetworkManger: NetworkMangerable {
         var request = URLRequest(url: url)
         request.httpMethod = api.method.string
         
-        let dataTask = session.dataTask(with: request) { data, response, error in
+        let dataTask = session.customDataTask(request: request) { result in
             DispatchQueue.main.async {
-                guard error == nil else {
+                guard result.error == nil else {
                     completion(.failure(APIError.transportError))
                     return
                 }
                 
-                guard let response = response as? HTTPURLResponse, (200...299).contains(response.statusCode) else {
+                guard let response = result.response as? HTTPURLResponse, (200...299).contains(response.statusCode) else {
                     completion(.failure(APIError.responseError))
                     return
                 }
 
-                guard let data = data else {
+                guard let data = result.data else {
                     completion(.failure(APIError.dataError))
                     return
                 }
