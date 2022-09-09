@@ -13,6 +13,7 @@
 		AC2AFA7B28CB0CD700E44D36 /* URLSessionProtorol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2AFA7A28CB0CD700E44D36 /* URLSessionProtorol.swift */; };
 		AC2AFA7E28CB138300E44D36 /* StubURLDataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2AFA7D28CB138300E44D36 /* StubURLDataTask.swift */; };
 		AC2AFA8028CB1AA400E44D36 /* StubURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2AFA7F28CB1AA400E44D36 /* StubURLSession.swift */; };
+		AC2AFA8528CB21FA00E44D36 /* TestAPIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2AFA8428CB21FA00E44D36 /* TestAPIModel.swift */; };
 		AC4895B728C73A1A003D230F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4895B628C73A1A003D230F /* AppDelegate.swift */; };
 		AC4895B928C73A1A003D230F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4895B828C73A1A003D230F /* SceneDelegate.swift */; };
 		AC4895BB28C73A1A003D230F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4895BA28C73A1A003D230F /* MainViewController.swift */; };
@@ -75,6 +76,7 @@
 		AC2AFA7A28CB0CD700E44D36 /* URLSessionProtorol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtorol.swift; sourceTree = "<group>"; };
 		AC2AFA7D28CB138300E44D36 /* StubURLDataTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubURLDataTask.swift; sourceTree = "<group>"; };
 		AC2AFA7F28CB1AA400E44D36 /* StubURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubURLSession.swift; sourceTree = "<group>"; };
+		AC2AFA8428CB21FA00E44D36 /* TestAPIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAPIModel.swift; sourceTree = "<group>"; };
 		AC4895B328C73A1A003D230F /* Book-Finder-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Book-Finder-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC4895B628C73A1A003D230F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC4895B828C73A1A003D230F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 			children = (
 				AC2AFA7D28CB138300E44D36 /* StubURLDataTask.swift */,
 				AC2AFA7F28CB1AA400E44D36 /* StubURLSession.swift */,
+				AC2AFA8428CB21FA00E44D36 /* TestAPIModel.swift */,
 			);
 			path = TestDouble;
 			sourceTree = "<group>";
@@ -305,8 +308,8 @@
 		ACBCC26528C7900300E35408 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				ACB9C94E28C7427D0061C492 /* NetworkManger.swift */,
 				AC2AFA7A28CB0CD700E44D36 /* URLSessionProtorol.swift */,
+				ACB9C94E28C7427D0061C492 /* NetworkManger.swift */,
 				AC9F9DF028C7582900CCBE07 /* APIModel.swift */,
 				AC9F9DF228C758A700CCBE07 /* HTTPMethod.swift */,
 			);
@@ -621,6 +624,7 @@
 				AC2AFA7E28CB138300E44D36 /* StubURLDataTask.swift in Sources */,
 				AC2AFA8028CB1AA400E44D36 /* StubURLSession.swift in Sources */,
 				AC4895CE28C73A1B003D230F /* Book_Finder_AppTests.swift in Sources */,
+				AC2AFA8528CB21FA00E44D36 /* TestAPIModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
