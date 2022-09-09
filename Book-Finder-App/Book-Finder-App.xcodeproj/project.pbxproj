@@ -11,6 +11,8 @@
 		471BA4C91C08B1E137A38C83 /* Pods_Book_Finder_App_Book_Finder_AppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59C6500074290CF56CF38A7E /* Pods_Book_Finder_App_Book_Finder_AppUITests.framework */; };
 		9E3F18C90B16164C950DE18A /* Pods_Book_Finder_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4552B433BE3EFA8C93B4CC37 /* Pods_Book_Finder_App.framework */; };
 		AC2AFA7B28CB0CD700E44D36 /* URLSessionProtorol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2AFA7A28CB0CD700E44D36 /* URLSessionProtorol.swift */; };
+		AC2AFA7E28CB138300E44D36 /* StubURLDataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2AFA7D28CB138300E44D36 /* StubURLDataTask.swift */; };
+		AC2AFA8028CB1AA400E44D36 /* StubURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2AFA7F28CB1AA400E44D36 /* StubURLSession.swift */; };
 		AC4895B728C73A1A003D230F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4895B628C73A1A003D230F /* AppDelegate.swift */; };
 		AC4895B928C73A1A003D230F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4895B828C73A1A003D230F /* SceneDelegate.swift */; };
 		AC4895BB28C73A1A003D230F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4895BA28C73A1A003D230F /* MainViewController.swift */; };
@@ -71,6 +73,8 @@
 		59C6500074290CF56CF38A7E /* Pods_Book_Finder_App_Book_Finder_AppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Book_Finder_App_Book_Finder_AppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8236CF4F0733B8229BBBC0E1 /* Pods-Book-Finder-App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Book-Finder-App.release.xcconfig"; path = "Target Support Files/Pods-Book-Finder-App/Pods-Book-Finder-App.release.xcconfig"; sourceTree = "<group>"; };
 		AC2AFA7A28CB0CD700E44D36 /* URLSessionProtorol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtorol.swift; sourceTree = "<group>"; };
+		AC2AFA7D28CB138300E44D36 /* StubURLDataTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubURLDataTask.swift; sourceTree = "<group>"; };
+		AC2AFA7F28CB1AA400E44D36 /* StubURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubURLSession.swift; sourceTree = "<group>"; };
 		AC4895B328C73A1A003D230F /* Book-Finder-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Book-Finder-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC4895B628C73A1A003D230F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC4895B828C73A1A003D230F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -168,6 +172,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		AC2AFA7C28CB137000E44D36 /* TestDouble */ = {
+			isa = PBXGroup;
+			children = (
+				AC2AFA7D28CB138300E44D36 /* StubURLDataTask.swift */,
+				AC2AFA7F28CB1AA400E44D36 /* StubURLSession.swift */,
+			);
+			path = TestDouble;
+			sourceTree = "<group>";
+		};
 		AC4895AA28C73A1A003D230F = {
 			isa = PBXGroup;
 			children = (
@@ -210,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				AC9F9DFB28C76A7100CCBE07 /* testSearchResult.json */,
+				AC2AFA7C28CB137000E44D36 /* TestDouble */,
 				AC4895CD28C73A1B003D230F /* Book_Finder_AppTests.swift */,
 			);
 			path = "Book-Finder-AppTests";
@@ -604,6 +618,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC2AFA7E28CB138300E44D36 /* StubURLDataTask.swift in Sources */,
+				AC2AFA8028CB1AA400E44D36 /* StubURLSession.swift in Sources */,
 				AC4895CE28C73A1B003D230F /* Book_Finder_AppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
