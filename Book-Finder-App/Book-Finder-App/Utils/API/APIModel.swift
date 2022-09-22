@@ -6,7 +6,6 @@
 //
 
 protocol APIable {
-    var bookTitle: String { get }
     var host: String { get }
     var path: String { get }
     var params: [String: String]? { get }
