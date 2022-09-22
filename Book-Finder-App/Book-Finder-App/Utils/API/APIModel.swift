@@ -12,7 +12,7 @@ protocol APIable {
     var method: HTTPMethod { get }
 }
 
-struct APIModel: APIable {
+struct BookAPIModel: APIable {
     let bookTitle: String
     let host = "https://www.googleapis.com"
     let path = "/books/v1/volumes/"

@@ -54,7 +54,7 @@ final class MainViewModel: MainViewModelable {
     
     private func getSearchInfo() {
         startLoading.accept(())
-        let api = APIModel(bookTitle: searchText, startIndex: startIndex, maxResult: maxResult, method: .get)
+        let api = BookAPIModel(bookTitle: searchText, startIndex: startIndex, maxResult: maxResult, method: .get)
         networkManager.request(api: api) { [weak self] result in
             switch result {
             case .success(let data):
