@@ -91,7 +91,19 @@ RC가 늘어나지 않는 것을 확인했다
 
 >[Issue Link](https://github.com/doogie97/Book-Finder-App/issues/3)
 
-### 📌 5. API 요청 시 쿼리에 따라 totalItems의 수가 바뀌는 현상
+### 📌 5. 14.1 시뮬레이터로 빌드시 일부 뷰가 검은색으로 표시되는 현상
+프로젝트 진행 중 14.1버전 시뮬레이터에서 아래와 같은 문제가 발생되었다
+
+<img src="https://velog.velcdn.com/images/doogie97/post/294fb393-b4c0-4f2a-b136-4a7bc58faae0/image.png" width="400">
+
+어떤 코드차이도 없고 둘 다 라이트 모드인데 Collection View의 background Color만 검은 색으로 표시되는 현상이다
+(추가적으로 다른 뷰 또한 이런 문제가 발생되는지는 모르겠지만 일단 이 프로젝트에서는 콜렉션 뷰만 그런것으로 확인 됐다)
+
+#### 해결 방법
+일단 해당 문제의 근본적인 원인을 알게 된다면 그 문제를 해결하는게 가장 좋겠지만 지금으로서는 그 원인을 파악하지 못했고 임시방편으로 라이트/다크 모드의 색상을 직접 지정해주는 것으로 해결 했다
+(자세한 내용은 [블로그 포스팅](https://velog.io/write?id=252babb2-246f-4a78-9919-e1a19574bef9) 참조!)
+
+### 📌 6. API 요청 시 쿼리에 따라 totalItems의 수가 바뀌는 현상
 ![](https://i.imgur.com/gaYuFi3.png)
 
 ![](https://i.imgur.com/1WCVMOi.png)
