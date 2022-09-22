@@ -77,6 +77,7 @@ final class MainView: UIView {
         collectionView.register(BookListCell.self, forCellWithReuseIdentifier: "\(BookListCell.self)")
         
         collectionView.keyboardDismissMode = .onDrag
+        collectionView.backgroundColor = .mainBackground
         
         return collectionView
     }()
