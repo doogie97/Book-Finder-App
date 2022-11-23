@@ -8,11 +8,11 @@
 import Foundation
 
 protocol NetworkMangerable {
-    func newRequest(api: APIable) async throws -> Data
+    func request(api: APIable) async throws -> Data
 }
 
-struct NetworkManger: NetworkMangerable {    
-    func newRequest(api: APIable) async throws -> Data {
+struct NetworkManger: NetworkMangerable {
+    func request(api: APIable) async throws -> Data {
         guard let url = makeURL(api: api) else {
             throw APIError.urlError
         }

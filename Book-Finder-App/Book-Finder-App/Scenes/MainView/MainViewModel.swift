@@ -59,7 +59,7 @@ final class MainViewModel: MainViewModelable {
         
         Task {
             do {
-                let data = try await networkManager.newRequest(api: api)
+                let data = try await networkManager.request(api: api)
                 await MainActor.run {
                     guard let searchResult = try? dataDecoder.parse(data: data, resultType: SearchResult.self) else {
                         print("디코드 에러")
