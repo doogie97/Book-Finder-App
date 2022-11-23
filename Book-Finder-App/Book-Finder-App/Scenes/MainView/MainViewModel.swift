@@ -13,7 +13,7 @@ protocol MainViewModelInput {
     func touchSearchButton(_ text: String?)
     func scrolledEndPoint()
     func touchCell(_ index: Int)
-    func asyncTest() async
+    func getSearchInfo() async
 }
 
 protocol MainViewModelOutput {
@@ -45,15 +45,15 @@ final class MainViewModel: MainViewModelable {
         startIndex = 0
         searchText = text
         items.accept([])
-        asyncTest()
+        getSearchInfo()
     }
     
     func scrolledEndPoint() {
         startIndex += maxResult
-        asyncTest()
+        getSearchInfo()
     }
     
-    func asyncTest() {
+    func getSearchInfo() {
         startLoading.accept(())
         let api = BookAPIModel(bookTitle: searchText, startIndex: startIndex, maxResult: maxResult, method: .get)
         
@@ -62,7 +62,7 @@ final class MainViewModel: MainViewModelable {
                 let data = try await networkManager.request(api: api)
                 await MainActor.run {
                     guard let searchResult = try? dataDecoder.parse(data: data, resultType: SearchResult.self) else {
-                        print("디코드 에러")
+                        print("디코드 에러") // 에러처리
                         return
                     }
                     
