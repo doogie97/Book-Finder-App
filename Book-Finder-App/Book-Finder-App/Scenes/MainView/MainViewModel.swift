@@ -50,38 +50,6 @@ final class MainViewModel: MainViewModelable {
     
     func scrolledEndPoint() {
         startIndex += maxResult
-        getSearchInfo()
-    }
-    
-    private func getSearchInfo() {
-        startLoading.accept(())
-        let api = BookAPIModel(bookTitle: searchText, startIndex: startIndex, maxResult: maxResult, method: .get)
-        networkManager.request(api: api) { [weak self] result in
-            switch result {
-            case .success(let data):
-                do {
-                    let searchResult = try self?.dataDecoder.parse(data: data, resultType: SearchResult.self)
-                    
-                    guard let totalItems = searchResult?.totalItems, totalItems != 0 else {
-                        self?.showAlert.accept("검색 결과가 없습니다")
-                        self?.totalItems.accept(0)
-                        self?.stopLoading.accept(())
-                        return
-                    }
-    
-                    self?.totalItems.accept(totalItems)
-                    
-                    let oldItems = self?.items.value ?? []
-                    let newItems = oldItems + (searchResult?.items ?? [])
-                    self?.items.accept(newItems)
-                } catch let error{
-                    self?.showAlert.accept(error.errorMessage)
-                }
-            case .failure(let error):
-                self?.showAlert.accept(error.errorMessage)
-            }
-            self?.stopLoading.accept(())
-        }
         asyncTest()
     }
     
