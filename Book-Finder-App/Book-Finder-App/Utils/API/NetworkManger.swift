@@ -11,13 +11,7 @@ protocol NetworkMangerable {
     func newRequest(api: APIable) async throws -> Data
 }
 
-struct NetworkManger: NetworkMangerable {
-    private let session: URLSessionProtocol
-    
-    init(urlSession: URLSessionProtocol = URLSession.shared) {
-        self.session = urlSession
-    }
-    
+struct NetworkManger: NetworkMangerable {    
     func newRequest(api: APIable) async throws -> Data {
         guard let url = makeURL(api: api) else {
             throw APIError.urlError
