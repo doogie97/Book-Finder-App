@@ -62,7 +62,7 @@ final class MainViewModel: MainViewModelable {
                 let data = try await networkManager.request(api: api)
                 await MainActor.run {
                     guard let searchResult = try? dataDecoder.parse(data: data, resultType: SearchResult.self) else {
-                        print("디코드 에러") // 에러처리
+                        showAlert.accept("데이터 변환 오류 발생")
                         return
                     }
                     
