@@ -13,6 +13,7 @@ protocol MainViewModelInput {
     func touchSearchButton(_ text: String?)
     func scrolledEndPoint()
     func touchCell(_ index: Int)
+    func asyncTest() async
 }
 
 protocol MainViewModelOutput {
@@ -44,7 +45,7 @@ final class MainViewModel: MainViewModelable {
         startIndex = 0
         searchText = text
         items.accept([])
-        getSearchInfo()
+        asyncTest()
     }
     
     func scrolledEndPoint() {
@@ -80,6 +81,45 @@ final class MainViewModel: MainViewModelable {
                 self?.showAlert.accept(error.errorMessage)
             }
             self?.stopLoading.accept(())
+        }
+        asyncTest()
+    }
+    
+    func asyncTest() {
+        startLoading.accept(())
+        let api = BookAPIModel(bookTitle: searchText, startIndex: startIndex, maxResult: maxResult, method: .get)
+        
+        Task {
+            do {
+                let data = try await networkManager.newRequest(api: api)
+                await MainActor.run {
+                    guard let searchResult = try? dataDecoder.parse(data: data, resultType: SearchResult.self) else {
+                        print("디코드 에러")
+                        return
+                    }
+                    
+                    guard let totalItems = searchResult.totalItems, totalItems != 0 else {
+                        showAlert.accept("검색 결과가 없습니다")
+                        totalItems.accept(0)
+                        stopLoading.accept(())
+                        return
+                    }
+                    
+                    self.totalItems.accept(totalItems)
+                    
+                    let oldItems = items.value
+                    let newItems = oldItems + (searchResult.items ?? [])
+                    items.accept(newItems)
+                }
+                
+            } catch let error {
+                await MainActor.run {
+                    showAlert.accept(error.errorMessage)
+                }
+            }
+            await MainActor.run {
+                stopLoading.accept(())
+            }
         }
     }
     
