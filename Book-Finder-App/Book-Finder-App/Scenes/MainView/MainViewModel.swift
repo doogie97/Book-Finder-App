@@ -54,7 +54,7 @@ final class MainViewModel: MainViewModelable {
         startLoading.accept(())
         let api = BookAPIModel(bookTitle: searchText, startIndex: startIndex, maxResult: maxResult, method: .get)
 
-        networkManager.newRequest(api: api, resultType: SearchResult.self) { [weak self] result in
+        networkManager.request(api: api, resultType: SearchResult.self) { [weak self] result in
             switch result {
             case .success(let searchResult):
                 guard let totalItems = searchResult.totalItems, totalItems != 0 else {
