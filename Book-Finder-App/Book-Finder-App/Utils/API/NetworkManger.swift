@@ -26,7 +26,7 @@ struct NetworkManger: NetworkMangerable {
         }
         
         var request = URLRequest(url: url)
-        request.httpMethod = api.method.string
+//        request.httpMethod = api.method.string
         
         let dataTask = session.customDataTask(request: request) { result in
             DispatchQueue.main.async {

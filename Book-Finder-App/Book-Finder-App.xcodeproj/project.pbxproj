@@ -29,7 +29,6 @@
 		AC80C2D228C9BF1500297C85 /* BookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC80C2D128C9BF1500297C85 /* BookDetailViewController.swift */; };
 		AC9F9DEF28C74E6200CCBE07 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F9DEE28C74E6200CCBE07 /* APIError.swift */; };
 		AC9F9DF128C7582900CCBE07 /* APIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F9DF028C7582900CCBE07 /* APIModel.swift */; };
-		AC9F9DF328C758A700CCBE07 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F9DF228C758A700CCBE07 /* HTTPMethod.swift */; };
 		AC9F9DF828C763BE00CCBE07 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F9DF728C763BE00CCBE07 /* SearchResult.swift */; };
 		AC9F9DFA28C7687400CCBE07 /* BookInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F9DF928C7687400CCBE07 /* BookInfo.swift */; };
 		AC9F9DFC28C76A7100CCBE07 /* testSearchResult.json in Resources */ = {isa = PBXBuildFile; fileRef = AC9F9DFB28C76A7100CCBE07 /* testSearchResult.json */; };
@@ -97,7 +96,6 @@
 		AC80C2D128C9BF1500297C85 /* BookDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailViewController.swift; sourceTree = "<group>"; };
 		AC9F9DEE28C74E6200CCBE07 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		AC9F9DF028C7582900CCBE07 /* APIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIModel.swift; sourceTree = "<group>"; };
-		AC9F9DF228C758A700CCBE07 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		AC9F9DF728C763BE00CCBE07 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		AC9F9DF928C7687400CCBE07 /* BookInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookInfo.swift; sourceTree = "<group>"; };
 		AC9F9DFB28C76A7100CCBE07 /* testSearchResult.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = testSearchResult.json; sourceTree = "<group>"; };
@@ -314,7 +312,6 @@
 				AC2AFA7A28CB0CD700E44D36 /* URLSessionProtorol.swift */,
 				ACB9C94E28C7427D0061C492 /* NetworkManger.swift */,
 				AC9F9DF028C7582900CCBE07 /* APIModel.swift */,
-				AC9F9DF228C758A700CCBE07 /* HTTPMethod.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -602,7 +599,6 @@
 				ACBBE02C28C9FE8F001C818D /* BookSubInfoView.swift in Sources */,
 				AC80C2D228C9BF1500297C85 /* BookDetailViewController.swift in Sources */,
 				ACBD1C1128C9D3480030F2AE /* UINavigationController + Extension.swift in Sources */,
-				AC9F9DF328C758A700CCBE07 /* HTTPMethod.swift in Sources */,
 				ACD5213428C79B1B0027F653 /* MainView.swift in Sources */,
 				ACBBE02828C9EEF8001C818D /* BookMainInfoView.swift in Sources */,
 				ACBBE02A28C9F3F1001C818D /* BookDescriptionView.swift in Sources */,

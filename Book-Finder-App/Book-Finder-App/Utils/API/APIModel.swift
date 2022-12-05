@@ -4,6 +4,7 @@
 //
 //  Created by 최최성균 on 2022/09/06.
 //
+import Alamofire
 
 protocol APIable {
     var host: String { get }
