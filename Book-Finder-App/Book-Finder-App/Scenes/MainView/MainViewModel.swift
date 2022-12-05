@@ -26,14 +26,12 @@ protocol MainViewModelOutput {
 
 final class MainViewModel: MainViewModelable {
     private let networkManager: NetworkMangerable
-    private let dataDecoder: DataDecoderable
     private var startIndex = 0
     private let maxResult = 20
     private var searchText = ""
     
-    init(networkManager: NetworkMangerable, dataDecoder: DataDecoderable) {
+    init(networkManager: NetworkMangerable) {
         self.networkManager = networkManager
-        self.dataDecoder = dataDecoder
     }
     
     //in

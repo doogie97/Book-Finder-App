@@ -17,8 +17,7 @@ final class Container: Containerable {
     }
     
     private func mainViewModel() -> MainViewModelable {
-        return MainViewModel(networkManager: NetworkManger(),
-                             dataDecoder: DataDecoder())
+        return MainViewModel(networkManager: NetworkManger())
     }
     
     func bookListCellViewModel(bookInfo: BookInfo) -> BookListCellViewModelable {
