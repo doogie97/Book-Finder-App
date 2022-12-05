@@ -6,6 +6,7 @@
 //
 
 import SnapKit
+import Alamofire
 
 final class BookListCell: UICollectionViewCell {
     private var viewModel: BookListCellViewModelable?
@@ -36,7 +37,7 @@ final class BookListCell: UICollectionViewCell {
         return label
     }()
     
-    private var imageViewDataTask: URLSessionDataTask?
+    private var imageViewDataTask: DataRequest?
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
