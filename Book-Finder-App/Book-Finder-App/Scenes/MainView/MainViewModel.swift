@@ -51,28 +51,31 @@ final class MainViewModel: MainViewModelable {
     }
     
     private func getSearchInfo() {
-        startLoading.accept(())
+        self.startLoading.accept(())
         let api = BookAPIModel(bookTitle: searchText, startIndex: startIndex, maxResult: maxResult, method: .get)
-
-        networkManager.request(api: api, resultType: SearchResult.self) { [weak self] result in
-            switch result {
-            case .success(let searchResult):
-                guard let totalItems = searchResult.totalItems, totalItems != 0 else {
-                    self?.showAlert.accept("검색 결과가 없습니다")
-                    self?.totalItems.accept(0)
-                    self?.stopLoading.accept(())
-                    return
+        Task {
+            do {
+                let searchResult = try await networkManager.newRequest(api: api, resultType: SearchResult.self)
+                await MainActor.run {
+                    guard let totalItems = searchResult.totalItems, totalItems != 0 else {
+                        self.showAlert.accept("검색 결과가 없습니다")
+                        self.totalItems.accept(0)
+                        self.stopLoading.accept(())
+                        return
+                    }
+                    
+                    self.totalItems.accept(totalItems)
+                    let oldItems = items.value
+                    let newItems = oldItems + (searchResult.items ?? [])
+                    self.items.accept(newItems)
+                    self.stopLoading.accept(())
                 }
-                
-                self?.totalItems.accept(totalItems)
-                
-                let oldItems = self?.items.value ?? []
-                let newItems = oldItems + (searchResult.items ?? [])
-                self?.items.accept(newItems)
-            case .failure(let error):
-                self?.showAlert.accept(error.errorMessage)
+            } catch let error {
+                await MainActor.run {
+                    self.showAlert.accept(error.errorMessage)
+                    stopLoading.accept(())
+                }
             }
-            self?.stopLoading.accept(())
         }
     }
     
