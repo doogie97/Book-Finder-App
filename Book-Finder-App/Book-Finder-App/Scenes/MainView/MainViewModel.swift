@@ -55,7 +55,7 @@ final class MainViewModel: MainViewModelable {
         let api = BookAPIModel(bookTitle: searchText, startIndex: startIndex, maxResult: maxResult, method: .get)
         Task {
             do {
-                let searchResult = try await networkManager.newRequest(api: api, resultType: SearchResult.self)
+                let searchResult = try await networkManager.request(api: api, resultType: SearchResult.self)
                 await MainActor.run {
                     guard let totalItems = searchResult.totalItems, totalItems != 0 else {
                         self.showAlert.accept("검색 결과가 없습니다")
