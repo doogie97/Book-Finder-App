@@ -8,7 +8,7 @@
 import Alamofire
 
 protocol NetworkMangerable {
-    func ㄱequest<T: Decodable>(api:APIable, resultType: T.Type) async throws -> T
+    func request<T: Decodable>(api:APIable, resultType: T.Type) async throws -> T
 }
 
 struct NetworkManger: NetworkMangerable {
